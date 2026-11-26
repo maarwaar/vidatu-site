@@ -1,0 +1,850 @@
+{
+ "shows": [
+  {
+   "id": "oob",
+   "name": "Inspector Oob",
+   "short": "Oob",
+   "format": "Reports",
+   "bg": "#1A1340",
+   "fg": "#FBF7EA",
+   "img": "oob.jpg",
+   "vid": null,
+   "tag": "Alien auditor of humans",
+   "idea": "Files deadpan field reports on human habits, then stamps a verdict. Secretly growing fond of us.",
+   "always": "open with the report number, end on the stamp, tease the next report",
+   "never": "mock a culture, country or group",
+   "next": [
+    "004 Small talk",
+    "005 Birthdays",
+    "006 The snooze button",
+    "007 The handshake"
+   ]
+  },
+  {
+   "id": "percy",
+   "name": "Percy",
+   "short": "Percy",
+   "format": "Lives",
+   "bg": "#2447F2",
+   "fg": "#FFFFFF",
+   "img": "percy.jpg",
+   "vid": "percy.mp4",
+   "tag": "The progress bar who lives 30 seconds",
+   "idea": "Born at 0%, gone at 100%. Must finish one fact before he does. Always stalls at 99% before the payoff.",
+   "always": "start at 0, end at exactly 100, stall at 99",
+   "never": "survive a video or remember a past life",
+   "next": [
+    "Why yawns are contagious",
+    "How long is \"a moment\"?",
+    "The fastest thing you own"
+   ]
+  },
+  {
+   "id": "old-h",
+   "name": "Old H",
+   "short": "Old H",
+   "format": "Tales",
+   "bg": "#141740",
+   "fg": "#FBF7EA",
+   "img": "oldh.jpg",
+   "vid": "oldh.mp4",
+   "tag": "A 13.8-billion-year-old hydrogen atom",
+   "idea": "He has been in a star, an ocean and a dinosaur. He tells history as personal anecdote. Signature line, once per video: \"I was there.\"",
+   "always": "first person, one \"I was there\", quiet ending",
+   "never": "hurry or lecture",
+   "next": [
+    "Where gold comes from",
+    "The first raindrop",
+    "Why the night sky is dark"
+   ]
+  },
+  {
+   "id": "gulp",
+   "name": "Gulp",
+   "short": "Gulp",
+   "format": "Snacks",
+   "bg": "#CDBBFF",
+   "fg": "#17122B",
+   "img": "gulp.jpg",
+   "vid": "gulp.mp4",
+   "tag": "A pocket-sized black hole",
+   "idea": "Grapefruit-sized, polite, permanently hungry. Asks before eating and does not wait for the answer. Every episode has a real physics answer.",
+   "always": "ask politely, show the grid bending, end still hungry",
+   "never": "eat a person or an animal",
+   "next": [
+    "What if Gulp ate the Sun?",
+    "Gulp meets a bigger black hole",
+    "What does Gulp weigh?"
+   ]
+  },
+  {
+   "id": "yup-and-nope",
+   "name": "Yup & Nope",
+   "short": "Yup & Nope",
+   "format": "Rounds",
+   "bg": "#FFD9CC",
+   "fg": "#17122B",
+   "img": "duo.jpg",
+   "vid": "duo.mp4",
+   "tag": "Two halves of one creature",
+   "idea": "The optimist half and the sceptic half argue one question with real facts. The meter always ends level and the audience votes in the comments. When they agree, they snap together into one face. Keep that rare.",
+   "always": "end on the vote, never on a ruling",
+   "never": "make either one stupid; no politics or religion",
+   "next": [
+    "Is cereal a soup?",
+    "Could you beat a goose?",
+    "Morning person or night owl?"
+   ]
+  },
+  {
+   "id": "tess",
+   "name": "Tess",
+   "short": "Tess",
+   "format": "Tricks",
+   "bg": "#0E7C86",
+   "fg": "#FFFFFF",
+   "img": "tess.jpg",
+   "vid": "tess.mp4",
+   "tag": "A being from the fourth dimension",
+   "idea": "What we see is only her shadow. She performs \"impossible\" tricks that are simply geometry from one dimension up, and explains each with Sam, a flat square who lives on a sheet of paper.",
+   "always": "show the flat version first, then the 3D version",
+   "never": "claim it is magic",
+   "next": [
+    "Untying a knot without touching the ends",
+    "Why I can see inside your fridge",
+    "What my shadow's shadow looks like"
+   ]
+  },
+  {
+   "id": "murmur",
+   "name": "Murmur",
+   "short": "Murmur",
+   "format": "Chapters",
+   "bg": "#2A1B6B",
+   "fg": "#FFFFFF",
+   "img": "murmur.jpg",
+   "vid": "murmur.mp4",
+   "tag": "The being made of everyone",
+   "idea": "8,300 dots, one for every million people alive, coloured by region. She speaks as \"I\" for all of humanity. One of the dots is you.",
+   "always": "real figures with a named source, one moment that points at the viewer",
+   "never": "rank people or regions as better or worse",
+   "next": [
+    "If I were 100 people",
+    "Who is awake right now",
+    "How many of me share your birthday"
+   ]
+  },
+  {
+   "id": "lab",
+   "name": "The Lab",
+   "short": "Lab",
+   "format": "Experiments",
+   "bg": "#070B20",
+   "fg": "#E8ECFF",
+   "img": "lab.jpg",
+   "vid": null,
+   "tag": "No words, just the rule",
+   "idea": "Captions, code-made sound and one physical rule made visible. No voice-over. Each experiment is a simulation you can run yourself.",
+   "always": "label a simulation as a simulation",
+   "never": "fake a result",
+   "next": [
+    "Sorting algorithms you can hear",
+    "Circles that draw a picture",
+    "The bouncing blocks that count the digits of pi"
+   ]
+  }
+ ],
+ "videos": [
+  {
+   "show": "oob",
+   "n": 1,
+   "slug": "clapping",
+   "title": "An alien explains clapping",
+   "answer": "Inspector Oob audits a human habit: hitting your own hands in a group until everyone stops at once. Researchers found applause spreads like a contagion, and so does stopping.",
+   "notes": [
+    {
+     "text": "Mann, Faria, Sumpter & Krause (2013), \"The dynamics of audience applause\", Journal of the Royal Society Interface.",
+     "link": "https://doi.org/10.1098/rsif.2013.0466"
+    }
+   ],
+   "pin": "What human habit should Oob inspect next?",
+   "transcript": [
+    "Field report one. Subject: humans.",
+    "When humans approve of something…",
+    "they strike their own hands. Repeatedly.",
+    "In groups. For up to a minute.",
+    "Nobody decides when it ends.",
+    "They simply… all stop. Together.",
+    "No leader. No signal.",
+    "Verdict:",
+    "Absurd. Do not stop.",
+    "Next report: your house predator."
+   ],
+   "checked": {
+    "claim": "Applause spreads and stops by social contagion, not by quality",
+    "verdict": "Confirmed"
+   },
+   "img": "v/oob-1.jpg",
+   "topic": "humans"
+  },
+  {
+   "show": "oob",
+   "n": 2,
+   "slug": "your-cat",
+   "title": "An alien inspects your cat",
+   "answer": "Humans keep a small predator indoors. It knows its name and chooses not to answer. A 2019 study of 78 cats found they do tell their own names from similar words.",
+   "notes": [
+    {
+     "text": "Saito et al. (2019), Scientific Reports, \"Domestic cats discriminate their names from other words\".",
+     "link": "https://doi.org/10.1038/s41598-019-40616-4"
+    }
+   ],
+   "pin": "Does your cat answer to its name? Be honest.",
+   "transcript": [
+    "Field report two. Subject: humans.",
+    "They keep a small predator indoors.",
+    "It hunts. It has claws. It ignores them.",
+    "It knows its name. It chooses not to answer.",
+    "They clean up after it. Daily.",
+    "In return, it vibrates.",
+    "Humans consider this a fair deal.",
+    "Verdict:",
+    "Approved. I want one.",
+    "Next report: queues."
+   ],
+   "checked": {
+    "claim": "Cats recognise their names and may ignore them",
+    "verdict": "Confirmed"
+   },
+   "img": "v/oob-2.jpg",
+   "topic": "animals"
+  },
+  {
+   "show": "oob",
+   "n": 3,
+   "slug": "the-queue",
+   "title": "An alien discovers the queue",
+   "answer": "No fence. No guard. No law. Humans stand in a line anyway, and the only punishment for cutting in is a stare. Inspector Oob is afraid to test it.",
+   "notes": [
+    {
+     "text": "Observation, not a study.",
+     "link": null
+    }
+   ],
+   "pin": "Which country queues best?",
+   "transcript": [
+    "Field report three. Subject: humans.",
+    "They stand in a line. On purpose.",
+    "No fence. No guard. No law.",
+    "First to arrive is first to be served.",
+    "Everyone simply agrees.",
+    "If one human skips ahead…",
+    "the others say nothing. They only stare.",
+    "It is the strongest force I have recorded.",
+    "Verdict:",
+    "Under review. I am afraid to cut in."
+   ],
+   "checked": null,
+   "img": "v/oob-3.jpg",
+   "topic": "humans"
+  },
+  {
+   "show": "percy",
+   "n": 1,
+   "slug": "why-loading-bars-freeze-at-99",
+   "title": "Why loading bars freeze at 99%",
+   "answer": "Percy is a progress bar with 30 seconds to live. Many bars count finished tasks, not time, and the last task is often the slowest.",
+   "notes": [
+    {
+     "text": "Note: this is how many installers work, not a universal rule.",
+     "link": null
+    }
+   ],
+   "pin": "What is the longest you have stared at 99%?",
+   "transcript": [
+    "Born! Okay. Thirty seconds.",
+    "Why do bars like me freeze at ninety-nine?",
+    "Because I don't measure time.",
+    "I count tasks. Done, done, done!",
+    "But the last task…",
+    "is usually the biggest one.",
+    "Checking. Cleaning up. Writing files.",
+    "So I sit here. At ninety-nine. Sweating.",
+    "Done! Worth it.",
+    "Tell the next me I said hi."
+   ],
+   "checked": null,
+   "img": "v/percy-1.jpg",
+   "topic": "humans"
+  },
+  {
+   "show": "percy",
+   "n": 2,
+   "slug": "the-food-that-never-goes-off",
+   "title": "The food that never goes off",
+   "answer": "Sealed honey barely spoils: almost no water, high acidity, and an enzyme from bees that makes hydrogen peroxide. Honey thousands of years old has been found still preserved.",
+   "notes": [
+    {
+     "text": "Smithsonian Magazine, \"The Science Behind Honey's Eternal Shelf Life\".",
+     "link": "https://www.smithsonianmag.com/science-nature/the-science-behind-honeys-eternal-shelf-life-1218690/"
+    }
+   ],
+   "pin": "What is the oldest thing in your kitchen?",
+   "transcript": [
+    "Born! Quick one. Honey.",
+    "Sealed honey basically never spoils.",
+    "Jars thousands of years old? Still edible.",
+    "It has almost no water.",
+    "Too sugary and too acidic for germs.",
+    "Bees even add an enzyme that fights microbes.",
+    "Honey outlasts empires!",
+    "I won't outlast this sentence.",
+    "Honey: forever. Me: thirty seconds.",
+    "Fair."
+   ],
+   "checked": {
+    "claim": "Honey: almost no water, acidic, bees add an enzyme (glucose oxidase) that makes hydrogen peroxide; pots thousands of years old still edible",
+    "verdict": "Confirmed"
+   },
+   "img": "v/percy-2.jpg",
+   "topic": "humans"
+  },
+  {
+   "show": "percy",
+   "n": 3,
+   "slug": "what-exactly-is-one-second",
+   "title": "What exactly is one second?",
+   "answer": "Since 1967 a second is not a slice of a day. It is 9,192,631,770 ticks of a caesium atom. Percy's whole 30-second life is about 276 billion of them.",
+   "notes": [
+    {
+     "text": "BIPM, Resolution 1 of the 13th General Conference on Weights and Measures (1967).",
+     "link": "https://www.bipm.org/en/-/resolution-cgpm-13-1"
+    }
+   ],
+   "pin": "276 billion ticks. What did you do with yours?",
+   "transcript": [
+    "Born! I get thirty seconds.",
+    "But what IS a second?",
+    "It's not a slice of a day any more.",
+    "Since 1967, it's an atom. Caesium.",
+    "It ticks 9,192,631,770 times.",
+    "That's one second. Exactly.",
+    "So my whole life…",
+    "is about 276 billion ticks!",
+    "Felt shorter.",
+    "See you in the next life."
+   ],
+   "checked": {
+    "claim": "Second defined in 1967 as 9,192,631,770 caesium periods; before that, a fraction of the day; 30 s ≈ 276 billion ticks",
+    "verdict": "Confirmed (arithmetic checked)"
+   },
+   "img": "v/percy-3.jpg",
+   "topic": "physics"
+  },
+  {
+   "show": "old-h",
+   "n": 1,
+   "slug": "the-day-the-universe-became-see-through",
+   "title": "The day the universe became see-through",
+   "answer": "For about 380,000 years the universe was a hot fog that light could not cross. Then atoms formed, the fog cleared, and that first light is still arriving today.",
+   "notes": [
+    {
+     "text": "NASA Science, \"Universe: Overview\" (recombination and the cosmic microwave background).",
+     "link": "https://science.nasa.gov/universe/overview/"
+    }
+   ],
+   "pin": "What would you ask someone who was there?",
+   "transcript": [
+    "The first light in the universe?",
+    "Hm. Let me think back.",
+    "For 380,000 years, everything was fog.",
+    "Hot. Crowded. Light couldn't get anywhere.",
+    "Then it cooled. And I caught my electron.",
+    "The fog cleared. Light ran free.",
+    "You can still see that light today.",
+    "I was there."
+   ],
+   "checked": {
+    "claim": "Universe opaque for about 380,000 years; nuclei then captured electrons; that light is still visible (cosmic microwave background)",
+    "verdict": "Confirmed"
+   },
+   "img": "v/oldh-1.jpg",
+   "topic": "space"
+  },
+  {
+   "show": "old-h",
+   "n": 2,
+   "slug": "how-a-star-makes-sunshine",
+   "title": "How a star makes sunshine",
+   "answer": "Deep inside the Sun it is about 15 million degrees. Hydrogen nuclei fuse into helium, a little mass goes missing, and it leaves as light.",
+   "notes": [
+    {
+     "text": "NASA Science, \"Our Sun: Facts\".",
+     "link": "https://science.nasa.gov/sun/facts"
+    }
+   ],
+   "pin": "Old H never fused. Lucky or unlucky?",
+   "transcript": [
+    "You want to know how a star shines?",
+    "I spent a long time inside one.",
+    "Fifteen million degrees. Very crowded.",
+    "We kept slamming into each other.",
+    "Now and then, four of us fuse into helium.",
+    "A little mass goes missing.",
+    "It becomes light. That's sunshine.",
+    "I never fused. I only watched.",
+    "I was there."
+   ],
+   "checked": {
+    "claim": "Star core about 15 million degrees",
+    "verdict": "Confirmed"
+   },
+   "img": "v/oldh-2.jpg",
+   "topic": "space"
+  },
+  {
+   "show": "old-h",
+   "n": 3,
+   "slug": "your-glass-of-water-is-13-8-billion-years-old",
+   "title": "Your glass of water is 13.8 billion years old",
+   "answer": "Almost every hydrogen atom in your water was made in the first minutes after the Big Bang. It has been a cloud, a comet and an ocean before it reached your glass.",
+   "notes": [
+    {
+     "text": "NASA Science, \"Universe: Overview\" (big bang nucleosynthesis).",
+     "link": "https://science.nasa.gov/universe/overview/"
+    }
+   ],
+   "pin": "Where do you think your water has been?",
+   "transcript": [
+    "That glass of water you are holding.",
+    "Two parts hydrogen. That's my family.",
+    "Every hydrogen in it is 13.8 billion years old.",
+    "It has been a cloud. A comet. An ocean.",
+    "It has rained on dinosaurs.",
+    "Probably been through one, too.",
+    "So when you take a sip…",
+    "you are drinking the beginning of time.",
+    "I was there."
+   ],
+   "checked": null,
+   "img": "v/oldh-3.jpg",
+   "topic": "space"
+  },
+  {
+   "show": "gulp",
+   "n": 1,
+   "slug": "what-if-a-tiny-black-hole-ate-the-moon",
+   "title": "What if a tiny black hole ate the Moon?",
+   "answer": "Gulp is a polite, pocket-sized black hole. Without the Moon, tides would shrink to about a third, nights would be far darker, and Earth's tilt would slowly become unstable.",
+   "notes": [
+    {
+     "text": "EarthDate, \"What If There Were No Moon?\"; Physics World, \"What's in a moon\".",
+     "link": null
+    }
+   ],
+   "pin": "What should Gulp eat next?",
+   "transcript": [
+    "Hi. I'm Gulp. I'm very small.",
+    "Is that the Moon? …May I?",
+    "Thank you.",
+    "Crunchy.",
+    "Oh. Your tides just shrank to a third.",
+    "Your nights got much darker.",
+    "And Earth will slowly start to wobble.",
+    "Sorry. I'm still hungry.",
+    "What should I eat next?"
+   ],
+   "checked": {
+    "claim": "Without the Moon: tides about a third, nights darker, Earth's tilt unstable",
+    "verdict": "Confirmed"
+   },
+   "img": "v/gulp-1.jpg",
+   "topic": "space"
+  },
+  {
+   "show": "gulp",
+   "n": 2,
+   "slug": "a-grapefruit-sized-black-hole-in-your-kitchen",
+   "title": "A grapefruit-sized black hole in your kitchen",
+   "answer": "A black hole the size of a grapefruit would weigh about as much as seven Earths. Your kitchen would not survive the visit.",
+   "notes": [
+    {
+     "text": "NASA Imagine the Universe, \"Black Holes\": Earth squeezed to a 9 mm radius would be a black hole, so a 6 cm radius needs about seven Earths.",
+     "link": "https://imagine.gsfc.nasa.gov/science/objects/black_holes1.html"
+    }
+   ],
+   "pin": "Which room would you sacrifice first?",
+   "transcript": [
+    "Hi. I'm the size of a grapefruit.",
+    "But I weigh as much as seven Earths.",
+    "So if I sat in your kitchen…",
+    "your kitchen would fall into me.",
+    "Then your street. Then, um. Everything.",
+    "That's why I stay out here.",
+    "I only eat what's already falling in.",
+    "Like this grapefruit.",
+    "Twins."
+   ],
+   "checked": null,
+   "img": "v/gulp-2.jpg",
+   "topic": "space"
+  },
+  {
+   "show": "gulp",
+   "n": 3,
+   "slug": "can-a-black-hole-eat-light",
+   "title": "Can a black hole eat light?",
+   "answer": "Light is the fastest thing there is, and even light cannot climb back out of a black hole. Light that only passes nearby gets bent.",
+   "notes": [
+    {
+     "text": "NASA, \"What Are Black Holes?\"",
+     "link": "https://www.nasa.gov/universe/what-are-black-holes"
+    }
+   ],
+   "pin": "Scary or just tidy?",
+   "transcript": [
+    "Can I eat light? Let's try.",
+    "Shine it at me. Please.",
+    "Mmm. Warm.",
+    "Light is the fastest thing there is.",
+    "Even light can't climb back out of me.",
+    "That's why I'm black. Nothing comes back.",
+    "Light that only passes close gets bent.",
+    "So I'm not scary. I'm just… tidy.",
+    "More light, please."
+   ],
+   "checked": null,
+   "img": "v/gulp-3.jpg",
+   "topic": "physics"
+  },
+  {
+   "show": "yup-and-nope",
+   "n": 1,
+   "slug": "could-you-outrun-a-hippo",
+   "title": "Could you outrun a hippo?",
+   "answer": "Yup says easy. Nope has numbers: a hippo can run about 30 km/h on land, faster than most people can sprint. You decide.",
+   "notes": [
+    {
+     "text": "Leibniz Institute IGB Berlin, hippopotamus profile (\"up to 30 km/h over short distances\"). Some zoos quote lower figures, around 24 km/h.",
+     "link": "https://igb-berlin.de/en/node/11064"
+    }
+   ],
+   "pin": "Run, climb or freeze? Vote.",
+   "transcript": [
+    "Yup: Could you outrun a hippo? Easy!",
+    "Nope: A hippo can run thirty kilometres an hour.",
+    "Yup: It weighs as much as a car!",
+    "Nope: A car that sprints faster than most people.",
+    "Yup: Usain Bolt would beat it!",
+    "Nope: Are you Usain Bolt?",
+    "Yup: …I could climb a tree.",
+    "Nope: Finally. A real plan.",
+    "Yup: So could you outrun it?"
+   ],
+   "checked": null,
+   "img": "v/duo-1.jpg",
+   "topic": "animals"
+  },
+  {
+   "show": "yup-and-nope",
+   "n": 2,
+   "slug": "is-the-five-second-rule-real",
+   "title": "Is the five-second rule real?",
+   "answer": "Bacteria can transfer in under a second. But dry food picks up far less, and carpet passes on less than tile. So who wins?",
+   "notes": [
+    {
+     "text": "Miranda & Schaffner (2016), Applied and Environmental Microbiology (Rutgers University).",
+     "link": "https://doi.org/10.1128/AEM.01838-16"
+    }
+   ],
+   "pin": "Would you still eat it? Yup or Nope.",
+   "transcript": [
+    "Yup: Five-second rule! It's still good!",
+    "Nope: Bacteria can hop on in under one second.",
+    "Yup: But it was a dry biscuit!",
+    "Nope: …Fair. Dry food picks up far less.",
+    "Yup: And it fell on carpet!",
+    "Nope: Carpet passes on less than tile. Annoyingly.",
+    "Yup: So I'm right!",
+    "Nope: You're lucky. That's different.",
+    "Yup: Would you still eat it?"
+   ],
+   "checked": {
+    "claim": "Bacteria can transfer in under a second; moisture matters; carpet transfers less than tile",
+    "verdict": "Confirmed"
+   },
+   "img": "v/duo-2.jpg",
+   "topic": "humans"
+  },
+  {
+   "show": "yup-and-nope",
+   "n": 3,
+   "slug": "would-you-move-to-mars",
+   "title": "Would you move to Mars?",
+   "answer": "About minus 60 degrees on average, air that is 95% carbon dioxide, and a day only 37 minutes longer than ours. But you would weigh about a third as much.",
+   "notes": [
+    {
+     "text": "NASA/JPL, \"Mars at a glance\"; ESA, \"Facts about Mars\".",
+     "link": "https://www.jpl.nasa.gov/news/press_kits/insight/landing/download/mars_insight_landing_presskit.pdf"
+    }
+   ],
+   "pin": "Would you go? Yup or Nope.",
+   "transcript": [
+    "Yup: Let's move to Mars! I'm packing.",
+    "Nope: It's about minus sixty degrees. On average.",
+    "Yup: A day there is almost as long as ours!",
+    "Nope: The air is carbon dioxide. And barely there.",
+    "Yup: You'd weigh a third as much. You could dunk!",
+    "Nope: …I would like to dunk.",
+    "Yup: So that's a yes?",
+    "Nope: It's a maybe. Don't make it weird.",
+    "Yup: Would you go?"
+   ],
+   "checked": {
+    "claim": "Mars gravity 38% (about a third), day 24 h 37 min, air 95% CO2 at under 1% of Earth's pressure",
+    "verdict": "Confirmed"
+   },
+   "img": "v/duo-3.jpg",
+   "topic": "space"
+  },
+  {
+   "show": "tess",
+   "n": 1,
+   "slug": "this-is-not-a-cube",
+   "title": "This is not a cube",
+   "answer": "Tess is four-dimensional, so what you see is only her shadow. A flat creature watching a ball pass through its world sees a dot, a circle, then nothing. You see her the same way.",
+   "notes": [
+    {
+     "text": "Idea from Edwin Abbott's \"Flatland\" (1884).",
+     "link": null
+    }
+   ],
+   "pin": "What would your shadow look like to a flat creature?",
+   "transcript": [
+    "Hello, three-dimensional friends.",
+    "This is not really me.",
+    "It's my shadow. I am four-dimensional.",
+    "Confused? Meet Sam. He is flat.",
+    "Watch a ball pass through his world.",
+    "Sam sees a dot. A circle. Then nothing.",
+    "He never sees the whole ball.",
+    "You see me the same way.",
+    "One slice at a time."
+   ],
+   "checked": null,
+   "img": "v/tess-1.jpg",
+   "topic": "maths"
+  },
+  {
+   "show": "tess",
+   "n": 2,
+   "slug": "the-impossible-box-trick-it-is-geometry",
+   "title": "The impossible box trick (it is geometry)",
+   "answer": "A ball leaves a sealed box with no lid and no door. A flat creature cannot leave a square, but you could lift it out. Tess does the same, one dimension higher.",
+   "notes": [
+    {
+     "text": "Standard four-dimensional geometry; see \"Flatland\" (1884).",
+     "link": null
+    }
+   ],
+   "pin": "What would you take out of a locked box?",
+   "transcript": [
+    "Want to see a magic trick?",
+    "One ball. Locked in a sealed box.",
+    "No lid. No door. Watch closely.",
+    "Gone.",
+    "And out.",
+    "It's not magic. It's a direction.",
+    "A flat creature can't leave a square.",
+    "But you could lift it straight up.",
+    "I did the same. One dimension higher.",
+    "I can also see inside your fridge."
+   ],
+   "checked": null,
+   "img": "v/tess-2.jpg",
+   "topic": "maths"
+  },
+  {
+   "show": "tess",
+   "n": 3,
+   "slug": "how-to-turn-a-left-shoe-into-a-right-shoe",
+   "title": "How to turn a left shoe into a right shoe",
+   "answer": "Slide and spin a flat letter F and it stays an F. Lift it off the page and flip it, and it becomes its mirror image. One dimension higher, the same works on solid things.",
+   "notes": [
+    {
+     "text": "Standard geometry: a rotation through a higher dimension is a reflection in the lower one.",
+     "link": null
+    }
+   ],
+   "pin": "What would you flip first?",
+   "transcript": [
+    "I can turn things into their mirror image.",
+    "Start flat. Sam has a letter F.",
+    "Slide it. Spin it. Still an F.",
+    "Now I lift it off the sheet. And flip.",
+    "A mirror F. Sam is speechless.",
+    "To me, your whole world is that sheet.",
+    "So I can flip solid things, too.",
+    "A left shoe becomes a right shoe.",
+    "Don't ask me to flip you."
+   ],
+   "checked": null,
+   "img": "v/tess-3.jpg",
+   "topic": "maths"
+  },
+  {
+   "show": "murmur",
+   "n": 1,
+   "slug": "one-of-these-8-300-dots-is-you",
+   "title": "One of these 8,300 dots is you",
+   "answer": "Murmur is made of 8,300 dots, one for every million people alive. About six in ten live in Asia and nearly two in ten in Africa.",
+   "notes": [
+    {
+     "text": "United Nations, World Population Prospects 2024.",
+     "link": "https://www.un.org/development/desa/pd/world-population-prospects-2024"
+    }
+   ],
+   "pin": "Which dot are you? Tell us your country.",
+   "transcript": [
+    "Hi. I'm Murmur.",
+    "I'm made of 8,300 dots.",
+    "Each dot is a million people.",
+    "Together, I'm everyone alive.",
+    "This dot? You're in it.",
+    "With 999,999 neighbours.",
+    "Watch. I'll sort myself by home.",
+    "Six in ten of me live in Asia.",
+    "Nearly two in ten, in Africa.",
+    "Different homes. One me.",
+    "Which dot are you?"
+   ],
+   "checked": {
+    "claim": "Asia 58.7% and Africa 18.8% of world population",
+    "verdict": "Confirmed"
+   },
+   "img": "v/murmur-1.jpg",
+   "topic": "humans"
+  },
+  {
+   "show": "murmur",
+   "n": 2,
+   "slug": "four-people-are-born-every-second",
+   "title": "Four people are born every second",
+   "answer": "Every second about four people are born and two die. The world grows by roughly 190,000 people a day.",
+   "notes": [
+    {
+     "text": "United Nations, World Population Prospects 2024.",
+     "link": "https://www.un.org/development/desa/pd/world-population-prospects-2024"
+    }
+   ],
+   "pin": "Say hello to today's arrivals.",
+   "transcript": [
+    "I never stay the same.",
+    "Every second, four of me are born.",
+    "Every second, two of me leave.",
+    "Since you pressed play: over forty hellos.",
+    "And nearly thirty goodbyes.",
+    "Three days of hellos make one new dot.",
+    "By tomorrow, I'll be 190,000 people bigger.",
+    "I'm never finished.",
+    "And you are part of today's me.",
+    "Say hello."
+   ],
+   "checked": {
+    "claim": "About 4 births and 2 deaths per second; +69 million a year (about 190,000 a day); 363,000 births a day (one million in under 3 days)",
+    "verdict": "Confirmed"
+   },
+   "img": "v/murmur-2.jpg",
+   "topic": "humans"
+  },
+  {
+   "show": "murmur",
+   "n": 3,
+   "slug": "you-are-part-of-the-newest-7",
+   "title": "You are part of the newest 7%",
+   "answer": "About 117 billion people have ever been born. Everyone alive today is roughly 7% of the human story.",
+   "notes": [
+    {
+     "text": "Population Reference Bureau, \"How Many People Have Ever Lived on Earth?\"",
+     "link": "https://www.prb.org/articles/how-many-people-have-ever-lived-on-earth/"
+    }
+   ],
+   "pin": "What should our chapter be remembered for?",
+   "transcript": [
+    "I'm everyone alive. All 8.3 billion.",
+    "But I'm not everyone who ever lived.",
+    "About 117 billion people have been born.",
+    "For every dot of me, thirteen came before.",
+    "They built the roads. Named the stars.",
+    "Told the first stories.",
+    "I'm only seven percent of the human story.",
+    "The newest seven percent.",
+    "Let's make it a good chapter."
+   ],
+   "checked": {
+    "claim": "About 117 billion people ever born; the living are about 7%",
+    "verdict": "Confirmed"
+   },
+   "img": "v/murmur-3.jpg",
+   "topic": "humans"
+  },
+  {
+   "show": "lab",
+   "n": 1,
+   "slug": "15-pendulums-one-hidden-rule",
+   "title": "15 pendulums, one hidden rule",
+   "answer": "Fifteen pendulums, each a little shorter than the last. In 24 seconds the longest makes 18 swings, the next 19, and so on up to 32. They drift into waves, then a mess, then land back in step at exactly 24 seconds. Each pendulum plays its own note.",
+   "notes": [
+    {
+     "text": "An idealised simulation of the classic \"pendulum wave\" demonstration (Harvard Natural Sciences Lecture Demonstrations).",
+     "link": null
+    }
+   ],
+   "pin": "At what second did they look most chaotic to you?",
+   "transcript": [],
+   "checked": null,
+   "img": "v/lab-1.jpg",
+   "topic": "physics"
+  },
+  {
+   "show": "lab",
+   "n": 2,
+   "slug": "400-balls-pure-luck-one-shape",
+   "title": "400 balls, pure luck, one shape",
+   "answer": "Every peg is a coin flip: left or right. Nobody can say where one ball lands. But drop 400 and the pile takes the same shape every time: the bell curve.",
+   "notes": [
+    {
+     "text": "A simulation of the Galton board (Francis Galton, 1889), with a fair coin flip at each of 12 rows of pegs.",
+     "link": null
+    }
+   ],
+   "pin": "Which slot would you bet one ball on?",
+   "transcript": [],
+   "checked": null,
+   "img": "v/lab-2.jpg",
+   "topic": "maths"
+  },
+  {
+   "show": "lab",
+   "n": 3,
+   "slug": "40-pendulums-almost-the-same-start",
+   "title": "40 pendulums, almost the same start",
+   "answer": "Forty double pendulums start a billionth of a degree apart. For about eleven seconds they move as one. Then they split, and never agree again. The same effect limits weather forecasts to about two weeks.",
+   "notes": [
+    {
+     "text": "Simulated from the real equations of motion.",
+     "link": null
+    },
+    {
+     "text": "Zhang et al. (2019), \"What Is the Predictability Limit of Midlatitude Weather?\", Journal of the Atmospheric Sciences.",
+     "link": "https://www.psu.edu/news/research/story/predictability-limit-scientists-find-bounds-weather-forecasting"
+    }
+   ],
+   "pin": "At what second did you first see them split?",
+   "transcript": [],
+   "checked": null,
+   "img": "v/lab-3.jpg",
+   "topic": "physics"
+  }
+ ]
+}

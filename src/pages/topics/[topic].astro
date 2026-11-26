@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import { u, videos, showOf, TOPICS } from '../../data/site.js';
+export function getStaticPaths() { return Object.keys(TOPICS).map(t => ({ params: { topic: t } })); }
+const { topic } = Astro.params, [name, line] = TOPICS[topic], list = videos.filter(v => v.topic === topic);
+const ld = [{ '@context': 'https://schema.org', '@type': 'CollectionPage', name: name + ' | Vidatu', description: line, url: `https://vidatu.com/topics/${topic}/` }];
+---
+<Base title={`${name}: 30-second films with sources | Vidatu`} description={line} path={`/topics/${topic}/`} ld={ld}>
+<div class="wrap plain" style="padding-top:30px">
+  <p class="crumbs"><a href={u('/')}>Vidatu</a> / Topics / {name}</p>
+  <h1>{name}</h1>
+  <p class="lede">{line}</p>
+  <ul class="chips">{Object.entries(TOPICS).filter(([k]) => k !== topic).map(([k, v]) => <li><a href={u('/topics/' + k + '/')}>{v[0]}</a></li>)}</ul>
+  <ol class="eps" style="margin-top:36px">{list.map(v => { const s = showOf(v.show); return <li><a class="ep" href={u(`/${s.id}/${v.slug}/`)}><img src={u('/img/' + v.img)} alt="" loading="lazy"><div><small>{s.short === 'Lab' ? 'The Lab' : s.name}</small><h3>{v.title}</h3><p>{v.answer.split('. ').slice(0, 2).join('. ').replace(/\.?$/, '.')}</p></div></a></li>; })}</ol>
+</div>
+</Base>

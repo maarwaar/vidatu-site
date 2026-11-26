@@ -1,6 +1,6 @@
 ---
 import { u, beacon } from '../data/site.js';
-const { title, description, show = 'oob', path = '/', ld = [], image = '/img/avatar.jpg' } = Astro.props;
+const { title, description, theme = null, path = '/', ld = [], image = '/img/avatar.jpg' } = Astro.props;
 const canon = 'https://vidatu.com' + path;
 const org = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Vidatu', url: 'https://vidatu.com/', logo: 'https://vidatu.com/img/avatar.jpg', sameAs: ['https://www.youtube.com/@vidatutv'] };
 ---
@@ -63,6 +63,8 @@ a.holo:hover{transform:translateY(-4px);box-shadow:0 0 46px rgba(124,255,203,.3)
 .crumbs{font-size:15px;margin:0 0 24px;opacity:.85}.crumbs a{text-underline-offset:3px}
 .article{display:grid;gap:27px 54px;padding-bottom:54px}@media(min-width:960px){.article{grid-template-columns:minmax(0,1fr) 380px;align-items:start}.article aside{position:sticky;top:27px}}
 @media(max-width:959px){.article aside{order:-1}.article aside p{display:none}}
+main{overflow-x:clip}
+@media(max-width:700px){.article aside .stamp{right:8px;font-size:20px}}
 .article aside img{border-radius:18px}.article aside .stamp{position:absolute;right:-6px;bottom:-12px;font-size:24px;background:var(--ink)}
 .answer{border:1.5px solid var(--mint);background:rgba(124,255,203,.06);border-radius:16px;padding:24px 24px 2px;margin:0 0 27px}.answer b{display:block;color:var(--mint);font-size:15px;margin-bottom:6px}.answer p{font-size:21px;line-height:1.4}
 .prose p,.prose ol{max-width:36em}.prose h2{font-size:30px;margin-top:34px}.prose ol{margin:0 0 27px;padding-left:22px}.prose a{color:var(--mint)}
@@ -72,6 +74,7 @@ summary{cursor:pointer;font-weight:700;font-size:20px;padding:14px 0;list-style:
 footer{background:#0B0819;color:var(--cream);padding:54px 0;font-size:16px}footer .cols{display:grid;gap:27px}@media(min-width:760px){footer .cols{grid-template-columns:1.4fr 1fr 1fr}}footer b{display:block;margin-bottom:8px;color:var(--mint)}footer ul{list-style:none;margin:0;padding:0}footer a{text-underline-offset:3px}
 .percy{position:fixed;inset:0 0 auto 0;height:7px;background:rgba(255,255,255,.14);z-index:60;--sp:0%}
 .percy i{position:absolute;inset:0 auto 0 0;width:var(--sp);background:#FFD23F;border-radius:0 6px 6px 0}
+.percy b,.percy em{opacity:0;transition:opacity .25s}.percy.on b,.percy.on em{opacity:1}
 .percy b{position:absolute;left:clamp(17px,var(--sp),calc(100% - 17px));top:-3px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:#FFD23F;box-shadow:0 3px 10px rgba(0,0,0,.35)}
 .percy b::before,.percy b::after{content:"";position:absolute;top:10px;width:5px;height:7px;border-radius:50%;background:#17122B}.percy b::before{left:8px}.percy b::after{right:8px}
 .percy u{position:absolute;left:50%;bottom:6px;width:10px;height:5px;margin-left:-5px;border-radius:0 0 10px 10px;background:#17122B}
@@ -88,24 +91,54 @@ footer{background:#0B0819;color:var(--cream);padding:54px 0;font-size:16px}foote
 #oob-live{width:100%;max-width:560px;aspect-ratio:3/4;margin:0 auto;display:block;cursor:pointer;touch-action:manipulation}
 .hero .hint{text-align:center;font-size:15px;opacity:.8;margin:6px 0 0}.hero .hint a{color:var(--mint)}
 .hero .specimen .stamp.hit{animation:slam .45s cubic-bezier(.2,1.6,.4,1) both}
+@view-transition{navigation:auto}
+body{background:var(--bg,var(--ink));color:var(--fg,var(--cream))}
+.kicker{color:var(--ac,var(--mint))}.kicker span{color:var(--fg,var(--cream))}.kicker a{color:inherit}.top nav a:hover{border-bottom-color:var(--ac,var(--mint))}
+.answer{border-color:var(--ac,var(--mint));background:color-mix(in srgb,var(--ac,var(--mint)) 9%,transparent)}.answer b{color:var(--ac,var(--mint))}
+.prose a,summary::after{color:var(--ac,var(--mint))}
+details,details:first-of-type,.pager{border-color:color-mix(in srgb,currentColor 35%,transparent)}
+.themed .btn{background:var(--fg);color:var(--bg)}.themed .btn.ghost{background:transparent;color:inherit}
+.showhero{display:grid;gap:10px 40px;align-items:center;padding:10px 0 40px}@media(min-width:900px){.showhero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:84vh}}
+.showhero h1{font-size:clamp(60px,10.5vw,150px);line-height:.88;letter-spacing:-.04em;font-variation-settings:"wdth" 75;margin:0 0 20px}
+.showhero .tag{font-size:clamp(20px,2.4vw,30px);font-weight:700;line-height:1.2;margin:0 0 18px;max-width:18em}
+canvas.live{width:100%;aspect-ratio:1/1;display:block;cursor:pointer;touch-action:manipulation;max-height:78vh;-webkit-mask-image:radial-gradient(closest-side,#000 80%,transparent);mask-image:radial-gradient(closest-side,#000 80%,transparent)}
+canvas:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--ac,var(--mint));outline-offset:4px;border-radius:8px}
+.bubble{display:block;width:fit-content;max-width:min(24em,100%);margin:14px auto 0;padding:13px 22px 14px;border-radius:20px;background:var(--fg,var(--cream));color:var(--bg,var(--ink));font-weight:700;font-size:18px;line-height:1.25;text-decoration:none;text-align:center;position:relative}
+.bubble::before{content:'';position:absolute;left:50%;top:-9px;width:18px;height:18px;margin-left:-9px;background:inherit;transform:rotate(45deg);border-radius:3px}
+.bubble small{display:block;font-weight:400;font-size:14px;opacity:.75;margin-top:3px}.bubble.pop{animation:pop .35s cubic-bezier(.3,1.6,.5,1)}@keyframes pop{from{transform:scale(.7);opacity:0}}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;list-style:none;padding:0;margin:8px 0 0;font-size:15px}.legend i{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:6px}
+#board{width:100%;aspect-ratio:3/4;display:block;border-radius:18px;background:linear-gradient(#0F1B4A,#060A1E);cursor:pointer;touch-action:manipulation}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;z-index:99;background:var(--cream);color:var(--ink);padding:10px 16px;border-radius:10px}
+.livewrap{position:relative}.livewrap>img,.livewrap>video{width:100%;border-radius:22px}.livewrap .hint{text-align:center;font-size:15px;opacity:.8;margin:4px 0 0}
+.rules{display:grid;gap:22px;margin:0 0 72px}@media(min-width:760px){.rules{grid-template-columns:1fr 1fr}}
+.rules div{border-top:3px solid currentColor;padding-top:14px}.rules b{display:block;font-size:15px;color:var(--ac,var(--mint));margin-bottom:6px}.rules span{font-size:clamp(22px,2.6vw,32px);font-weight:700;line-height:1.15;font-variation-settings:"wdth" 86}
+.eps{display:grid;gap:22px;list-style:none;margin:0 0 72px;padding:0}@media(min-width:760px){.eps{grid-template-columns:repeat(3,1fr)}}
+.ep{display:block;text-decoration:none;border-radius:18px;overflow:hidden;background:color-mix(in srgb,currentColor 9%,transparent);height:100%;transition:transform .15s}.ep:hover{transform:translateY(-5px)}
+.ep img{width:100%;aspect-ratio:4/3;object-fit:cover}.ep div{padding:16px 18px 20px}.ep small{display:block;font-size:14px;opacity:.75;margin-bottom:4px}.ep h3{font-size:22px;margin:0 0 8px}.ep p{margin:0;font-size:16px;line-height:1.4;opacity:.85}
+.chips{display:flex;gap:10px;flex-wrap:wrap;list-style:none;padding:0;margin:0 0 24px}.chips a,.chip{display:inline-block;padding:8px 16px 9px;border-radius:999px;box-shadow:inset 0 0 0 2px currentColor;text-decoration:none;font-weight:700;font-size:16px}.chips a:hover{background:var(--fg,var(--cream));color:var(--bg,var(--ink))}
+.plain h1{font-size:clamp(44px,7vw,92px);max-width:11em}.plain .prose h2{font-size:32px}.plain section{padding:0 0 60px}
+.srclist{list-style:none;padding:0;margin:0 0 40px;max-width:46em}.srclist li{padding:14px 0;border-bottom:1.5px solid color-mix(in srgb,currentColor 30%,transparent)}.srclist b{display:block}
+#chaos{width:100%;max-width:520px;border-radius:18px;background:linear-gradient(#0C1230,#04050D);cursor:pointer;display:block;margin:0 auto}
+.world a.name{text-decoration:none}.world a.name:hover h2{text-decoration:underline;text-decoration-thickness:6px;text-underline-offset:10px}
 </style>
 </head>
-<body data-show={show}>
+<body style={theme ? `--bg:${theme.bg};--fg:${theme.fg};--ac:${theme.ac}` : undefined}>
 <div class="percy" aria-hidden="true"><i></i><b><u></u></b><em>0%</em></div>
 <script is:inline>
 (() => { const el = document.querySelector('.percy'), em = el.querySelector('em'); let tick = false;
   const up = () => { tick = false; const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? scrollY / max : 0, shown = p < .9 ? p / .9 * .99 : (p < .995 ? .99 : 1);
-    el.style.setProperty('--sp', (shown * 100).toFixed(2) + '%'); em.textContent = Math.floor(shown * 100) + '%'; el.classList.toggle('stall', shown === .99); };
+    el.style.setProperty('--sp', (shown * 100).toFixed(2) + '%'); em.textContent = Math.floor(shown * 100) + '%'; el.classList.toggle('stall', shown === .99); el.classList.toggle('on', scrollY > 60); };
   addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(up); } }, { passive: true }); addEventListener('resize', up); up(); })();
 </script>
-<div class="stage"><div class="wrap"><header class="top">
+<a class="skip" href="#main">Skip to the content</a>
+<div class="wrap"><header class="top">
   <a class="mark" href={u('/')}><img src={u('/img/avatar.jpg')} alt="" width="30" height="30">Vidatu</a>
-  <nav aria-label="Main"><a href={u('/oob/')}>Shows</a><a href={u('/#lab')}>Lab</a><a href={u('/#sources')}>Sources</a><a href={u('/#brands')}>For brands</a></nav>
-</header></div></div>
-<main><slot /></main>
+  <nav aria-label="Main"><a href={u('/#shows')}>Shows</a><a href={u('/lab/')}>Lab</a><a href={u('/sources/')}>Sources</a><a href={u('/about/')}>About</a><a href={u('/brands/')}>For brands</a></nav>
+</header></div>
+<main id="main"><slot /></main>
 <footer><div class="wrap cols">
   <div><b>Vidatu</b>Hidden rules, made visible. One true, surprising thing in 30 seconds, with its sources.<br><br>Animated entirely in code. Voices are AI-generated.</div>
-  <div><b>Watch</b><ul><li><a href="https://www.youtube.com/@vidatutv">YouTube</a></li><li><a href={u('/oob/')}>Inspector Oob's reports</a></li></ul></div>
-  <div id="brands"><b>For brands</b>We make films like these for products and launches. A SellnShip Solutions production, Chandigarh.<br><a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a></div>
+  <div><b>Explore</b><ul><li><a href={u('/oob/')}>Inspector Oob's reports</a></li><li><a href={u('/lab/')}>The Lab</a></li><li><a href={u('/topics/space/')}>Space</a> · <a href={u('/topics/animals/')}>Animals</a> · <a href={u('/topics/maths/')}>Maths</a> · <a href={u('/topics/physics/')}>Physics</a> · <a href={u('/topics/humans/')}>Human life</a></li><li><a href={u('/sources/')}>Sources and corrections</a></li><li><a href="https://www.youtube.com/@vidatutv">YouTube</a></li></ul></div>
+  <div><b>For brands</b>We make films like these for products and launches. <a href={u('/brands/')}>See how</a>, or write to <a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a>.<br><br>A SellnShip Solutions production, Chandigarh.</div>
 </div></footer>
 </body></html>

@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import { u, shows, videos, reports } from '../../data/site.js';
+export function getStaticPaths() { return shows.map(s => ({ params: { show: s.id }, props: { s } })); }
+const { s } = Astro.props, eps = videos.filter(v => v.show === s.id), lab = s.id === 'lab', others = shows.filter(x => x.id !== s.id);
+const rich = Object.fromEntries(reports.map(r => [r.slug, r]));
+const ld = [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Vidatu', item: 'https://vidatu.com/' }, { '@type': 'ListItem', position: 2, name: s.name, item: 'https://vidatu.com/' + s.id + '/' }] },
+  { '@context': 'https://schema.org', '@type': 'CollectionPage', name: s.name, description: s.idea, url: 'https://vidatu.com/' + s.id + '/' }];
+---
+<Base title={`${s.name}: ${s.tag} | Vidatu`} description={s.idea} path={'/' + s.id + '/'} ld={ld} image={'/img/' + s.img} theme={s}>
+<div class="wrap themed">
+  <div class="showhero">
+    <div>
+      <ul class="kicker"><li><span>Show</span>{s.format}</li><li><span>Length</span>30 seconds each</li></ul>
+      <h1 style={`view-transition-name:t-${s.id}`}>{s.short === 'Oob' ? 'Oob' : s.short === 'Lab' ? 'The Lab' : s.short}</h1>
+      <p class="tag">{s.name === s.short || lab ? s.tag : s.name + ', ' + s.tag.charAt(0).toLowerCase() + s.tag.slice(1)}.</p>
+      <p class="lede">{s.idea}</p>
+    </div>
+    <div class="livewrap" style={`view-transition-name:p-${s.id}`}>
+      {lab ? <>
+        <canvas id="wave" aria-label="Live pendulum wave: pull the pendulums sideways and let go"></canvas>
+        <div class="controls"><button class="btn" id="wave-restart" type="button">Start again</button><button class="btn ghost" id="wave-sound" type="button" aria-pressed="false">Sound off</button><label>Pendulums <input id="wave-n" type="range" min="5" max="30" value="15"> <span id="wave-nv">15</span></label><span id="wave-t"></span></div>
+      </> : <>
+        {s.vid ? <video autoplay muted loop playsinline poster={u('/img/' + s.img)}><source src={u('/img/' + s.vid)} type="video/mp4"></video> : <img src={u('/img/oob-hero.jpg')} alt="" style="max-width:420px;margin:0 auto">}
+        <canvas class="live" hidden data-show={s.id} data-live={u('/js/oob-live.js')} data-base={u('/')} data-eps={JSON.stringify(eps.map(v => [rich[v.slug]?.h1 || v.title, u('/' + s.id + '/' + v.slug + '/')]))} aria-label={`${s.short}, live. Moves with your pointer. Tap to change mood.`}></canvas>
+        <p class="hint" hidden>{s.id === 'oob' ? 'He is watching you. Tap him to make him rule.' : s.id === 'percy' ? 'Scroll the page: Percy is your progress bar. Tap him for an episode.' : s.id === 'murmur' ? 'Tap to find your dot. Tap again to see where everyone lives.' : `${s.short}, live in your browser. Tap for an episode.`}</p>
+        {s.id === 'murmur' && <ul class="legend" hidden>{[['Asia', '#FF6B6B'], ['Africa', '#FFC145'], ['Europe', '#5BC0EB'], ['Latin America', '#7AE582'], ['North America', '#B892FF'], ['Oceania', '#FF9ECD']].map(c => <li><i style={`background:${c[1]}`}></i>{c[0]}</li>)}</ul>}
+        <a class="bubble" hidden href={u('/' + s.id + '/')}></a>
+      </>}
+    </div>
+  </div>
+  <div class="rules"><div><b>Always</b><span>{s.always.charAt(0).toUpperCase() + s.always.slice(1)}.</span></div><div><b>Never</b><span>{s.never.charAt(0).toUpperCase() + s.never.slice(1)}.</span></div></div>
+  <h2>{lab ? 'Experiments' : 'Episodes'}</h2>
+  <ol class="eps">{eps.map(v => <li><a class="ep" href={u('/' + s.id + '/' + v.slug + '/')}><img src={u('/img/' + v.img)} alt="" loading="lazy"><div><small>{s.one} {String(v.n).padStart(3, '0')}</small><h3>{rich[v.slug]?.h1 || v.title}</h3><p>{(rich[v.slug]?.finding || v.answer).split('. ').slice(0, 2).join('. ').replace(/\.?$/, '.')}</p></div></a></li>)}</ol>
+  {s.next.length > 0 && <><h2>In production</h2><ul class="chips">{s.next.map(n => <li><span class="chip">{n}</span></li>)}</ul><div style="height:48px"></div></>}
+  <h2>The other shows</h2>
+  <ul class="chips" style="margin-bottom:80px">{others.map(o => <li><a href={u('/' + o.id + '/')}>{o.short === 'Lab' ? 'The Lab' : o.name}</a></li>)}</ul>
+</div>
+{lab && <script is:inline src={u('/js/pendulum.js')} defer></script>}
+<script is:inline>
+(() => { const cv = document.querySelector('canvas.live'); if (!cv || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  import(cv.dataset.live).then(m => { const wrap = cv.parentElement, old = wrap.querySelector('video, img'), bub = wrap.querySelector('.bubble'), eps = JSON.parse(cv.dataset.eps);
+    const say = (text, href, small) => { bub.textContent = text; if (small) { const x = document.createElement('small'); x.textContent = small; bub.appendChild(x); } bub.href = href; bub.hidden = false; bub.classList.remove('pop'); void bub.offsetWidth; bub.classList.add('pop'); };
+    cv.hidden = false;
+    if (cv.dataset.show === 'oob') m.mount(cv, { verdict: sp => say(sp.subject + ': ' + sp.verdict.toLowerCase() + '.', cv.dataset.base + 'oob/' + sp.slug + '/', 'Read report ' + sp.no) });
+    else m.mountShow(cv, cv.dataset.show, { tap: (mood, n, r) => { const e = eps[n % eps.length]; say(e[0], e[1], 'Read this one'); const lg = wrap.querySelector('.legend'); if (lg) lg.hidden = r.step !== 2; } });
+    if (old) old.remove(); wrap.querySelector('.hint').hidden = false; }).catch(() => {}); })();
+</script>
+</Base>

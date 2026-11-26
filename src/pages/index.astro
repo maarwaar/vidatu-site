@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { u, shows, reports } from '../data/site.js';
+import { u, shows, reports, TOPICS } from '../data/site.js';
 const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidatu', url: 'https://vidatu.com/' }];
 ---
 <Base title="Vidatu: an alien is auditing humans" description="Inspector Oob files 30-second field reports on human habits. His colleagues explain the rest of the universe. Every fact has a source." path="/" ld={ld}>
@@ -11,7 +11,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidat
       <ul class="kicker"><li><span>Filed by</span>Inspector Oob</li><li><span>Subject</span>humans</li></ul>
       <h1>An alien is auditing <em>humans.</em></h1>
       <p class="lede">Inspector Oob files one 30-second report on one human habit. Clapping. Queues. Your cat. Each ends with a stamped verdict, and every fact has a source.</p>
-      <div class="actions"><a class="btn" href={u('/oob/')}>Read the reports</a><a class="btn ghost" href="https://www.youtube.com/@vidatutv">Watch on YouTube</a></div>
+      <div class="actions"><a class="btn" href={u('/oob/')} style="view-transition-name:t-oob">Read the reports</a><a class="btn ghost" href="https://www.youtube.com/@vidatutv">Watch on YouTube</a></div>
     </div>
     <figure class="specimen" data-live={u('/js/oob-live.js')} data-base={u('/oob/')}>
       <video autoplay muted loop playsinline poster={u('/img/oob-hero.jpg')} aria-label="Inspector Oob, a violet alien with a visor for a face, projecting a hologram of a cat labelled: specimen cat, status in charge"><source src={u('/img/oob-hero.mp4')} type="video/mp4"></video>
@@ -25,15 +25,17 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidat
   <h2>Latest reports</h2>
   <ol class="holos">{reports.map(r => <li><a class="holo" href={u('/oob/' + r.slug + '/')}><span class="no">REPORT {r.no}</span><h3>{r.h1}</h3><p>{r.finding}</p><span class={'stamp ' + r.vc}>{r.verdict}</span></a></li>)}</ol>
 </div></div>
-{shows.filter(s => !s.live).map((s, n) => <section class="world" data-bg={s.melt || s.bg} style={`--bg:${s.bg};--fg:${s.ink};--dir:${n % 2 ? -1 : 1};background:${s.bg}`}><div class="wrap grid">
-  <div class="pic"><video muted loop playsinline preload="none" poster={u('/img/' + s.img)} data-loop><source src={u('/img/' + s.vid)} type="video/mp4"></video></div>
-  <div class="txt"><p class="fmt">{s.format}</p><h2>{s.name}</h2><p class="line">{s.line}</p><span class="soon">Page being built</span></div>
+<div id="shows"></div>
+{shows.filter(s => s.id !== 'oob' && s.id !== 'lab').map((s, n) => <section class="world" data-bg={s.bg} style={`--bg:${s.bg};--fg:${s.fg};--dir:${n % 2 ? -1 : 1};background:${s.bg};color:${s.fg}`}><div class="wrap grid">
+  <a class="pic" href={u('/' + s.id + '/')} aria-label={'Meet ' + s.name} style={`view-transition-name:p-${s.id}`}><video muted loop playsinline preload="none" poster={u('/img/' + s.img)} data-loop><source src={u('/img/' + s.vid)} type="video/mp4"></video></a>
+  <div class="txt"><p class="fmt">{s.format}</p><a class="name" href={u('/' + s.id + '/')}><h2 style={`view-transition-name:t-${s.id}`}>{s.short}</h2></a><p class="line">{s.idea.split('. ')[0]}.</p><a class="btn" style={`background:${s.fg};color:${s.bg}`} href={u('/' + s.id + '/')}>Meet {s.short}</a></div>
 </div></section>)}
 <div class="lab" id="lab" data-bg="#070B20"><div class="wrap grid">
   <div>
     <h2>The Lab. No words, just the rule.</h2>
     <p class="note">This is not a video. Fifteen pendulums are swinging in your browser right now, each a little faster than the last. They drift into waves, then a mess, then land back in step every 24 seconds.</p>
     <p class="note">Every Vidatu film is made in code, so here you can run the real thing. Pull them sideways and let go. Turn the sound on: each pendulum plays its own note, as in the film.</p>
+    <p><a class="btn" href={u('/lab/')}>Open the Lab</a></p>
   </div>
   <div>
     <canvas id="wave" aria-label="Live pendulum wave: coloured dots swinging at slightly different speeds"></canvas>
@@ -42,7 +44,8 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidat
 </div></div>
 <div class="band light" id="sources"><div class="wrap">
   <h2>Every fact has a source</h2>
-  <p class="note" style="margin:0">If a film states a number, its page names where the number came from, with a link and the date it was checked. If we get one wrong, we fix the film and say so.</p>
+  <p class="note">If a film states a number, its page names where the number came from, with a link and the date it was checked. If we get one wrong, we fix the film and say so.</p>
+  <ul class="chips">{Object.entries(TOPICS).map(([k, v]) => <li><a href={u('/topics/' + k + '/')}>{v[0]}</a></li>)}<li><a href={u('/sources/')}>All sources</a></li></ul>
 </div></div>
 <script is:inline src={u('/js/pendulum.js')} defer></script>
 <script is:inline>

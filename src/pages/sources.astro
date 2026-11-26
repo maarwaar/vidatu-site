@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { u, shows, videos, reports, CHECKED, host } from '../data/site.js';
+const rich = Object.fromEntries(reports.map(r => [r.slug, r]));
+---
+<Base title="Sources and corrections | Vidatu" description="Every factual claim in a Vidatu film, with where it came from and when it was last checked." path="/sources/">
+<div class="wrap plain" style="padding-top:30px">
+  <p class="crumbs"><a href={u('/')}>Vidatu</a> / Sources</p>
+  <h1>Sources and corrections</h1>
+  <p class="lede">Every claim in every film, with where it came from. All of them were last checked on {CHECKED}.</p>
+  <div class="prose">
+    <h2>How we check</h2>
+    <p>A script is not animated until each number in it has a named source: a published study, a space agency, a standards body or a national statistics office. Where sources disagree, we use the cautious figure and say so. Simulations are labelled as simulations.</p>
+    <h2>Corrections</h2>
+    <p>One so far. In "Would you move to Mars?" the average temperature was first given as minus 63 °C. Agencies publish values from minus 53 to minus 63, so the line now says "about minus sixty". Corrected before release, on 26 Nov 2026.</p>
+    <p>Spotted something wrong? Write to <a href="mailto:hello@vidatu.com?subject=Correction">hello@vidatu.com</a>.</p>
+    {shows.map(s => <><h2>{s.short === 'Lab' ? 'The Lab' : s.name}</h2><ul class="srclist">{videos.filter(v => v.show === s.id).map(v => { const r = s.id === 'oob' ? rich[v.slug] : null, src = r ? r.sources.map(x => ({ text: x[0], link: x[1] })) : v.notes;
+      return <li><b><a href={u(`/${s.id}/${v.slug}/`)}>{r?.h1 || v.title}</a></b>{src.length ? src.map(x => <span style="display:block">{x.text} {x.link && <a href={x.link} rel="noopener">{host(x.link)}</a>} </span>) : <span>An observation; no factual claim to source.</span>}</li>; })}</ul></>)}
+  </div>
+</div>
+</Base>

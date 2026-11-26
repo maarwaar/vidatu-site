@@ -1,15 +1,14 @@
 export const u = p => import.meta.env.BASE_URL.replace(/\/$/, '') + p;
 // Cloudflare Web Analytics token (public by design). Empty = no analytics script.
 export const beacon = '2e719a0bfca94259b52f0fb168bd8312';
-export const shows = [
-  { id: 'oob', name: 'Inspector Oob', format: 'Reports', line: 'An alien auditor files field reports on human habits, then stamps a verdict.', img: 'oob.jpg', bg: '#EAF0E3', ink: '#17122B', live: true },
-  { id: 'percy', name: 'Percy', format: 'Lives', line: 'A progress bar with 30 seconds to live. One fact per life.', img: 'percy.jpg', vid: 'percy.mp4', bg: '#2447F2', ink: '#fff' },
-  { id: 'old-h', name: 'Old H', format: 'Tales', line: 'A 13.8-billion-year-old hydrogen atom. He was there.', img: 'oldh.jpg', vid: 'oldh.mp4', bg: '#C96F1E', ink: '#fff' },
-  { id: 'gulp', name: 'Gulp', format: 'Snacks', line: 'A polite, pocket-sized black hole who asks before she eats the Moon.', img: 'gulp.jpg', vid: 'gulp.mp4', bg: '#CDBBFF', ink: '#17122B' },
-  { id: 'yup-and-nope', name: 'Yup & Nope', format: 'Rounds', line: 'Two halves of one creature argue with real facts. You cast the vote.', img: 'duo.jpg', vid: 'duo.mp4', bg: '#FFD9CC', ink: '#17122B' },
-  { id: 'tess', name: 'Tess', format: 'Tricks', line: 'A visitor from the fourth dimension whose magic is geometry.', img: 'tess.jpg', vid: 'tess.mp4', bg: '#0E7C86', ink: '#fff' },
-  { id: 'murmur', name: 'Murmur', format: 'Chapters', line: '8,300 dots, one per million people alive. One has you in it.', img: 'murmur.jpg', vid: 'murmur.mp4', bg: '#2A1B6B', ink: '#fff' }
-];
+import content from './content.json';
+const AC = { oob: '#7CFFCB', percy: '#FFD23F', 'old-h': '#FFB52E', gulp: '#17122B', 'yup-and-nope': '#17122B', tess: '#FFD166', murmur: '#FFC145', lab: '#FFB52E' };
+export const shows = content.shows.map(x => ({ ...x, ac: AC[x.id], one: x.format === 'Lives' ? 'Life' : x.format.replace(/s$/, ''), title: x.short === 'Lab' ? 'The Lab' : x.name }));
+export const host = l => new URL(l).hostname.replace(/^www\./, '');
+export const videos = content.videos;
+export const showOf = id => shows.find(x => x.id === id);
+export const TOPICS = { space: ['Space', 'Stars, black holes, the Moon and the first light in the universe.'], animals: ['Animals', 'Cats that ignore you and hippos you cannot outrun.'], maths: ['Maths', 'Bell curves, higher dimensions and shapes that should not be possible.'], physics: ['Physics', 'Time, light, chaos and why pendulums fall back into step.'], humans: ['Human life', 'Clapping, queues, loading bars and the eight billion of us.'] };
+export const CHECKED = '26 Nov 2026';
 export const reports = [
   { slug: 'clapping', no: '001', subject: 'Clapping', verdict: 'Absurd', vc: 'absurd', img: 'oob-1.jpg',
     h1: 'Why does a whole audience stop clapping at once?',
@@ -33,7 +32,7 @@ export const reports = [
       'The study measured recognition, not obedience. A cat that knows its name and stays on the sofa is behaving exactly as the data describes.'],
     transcript: ['Field report two. Subject: humans.', 'They keep a small predator indoors.', 'It hunts. It has claws. It ignores them.', 'It knows its name. It chooses not to answer.', 'They clean up after it. Daily.', 'In return, it vibrates.', 'Humans consider this a fair deal.', 'Verdict:', 'Approved. I want one.', 'Next report: queues.'],
     sources: [['Saito, Shinozuka, Ito & Hasegawa (2019), "Domestic cats (Felis catus) discriminate their names from other words", Scientific Reports 9: 5394.', 'https://doi.org/10.1038/s41598-019-40616-4'],
-      ['Scientific American, "Cats Recognize Their Own Names, Even If They Choose to Ignore Them".', 'https://www.scientificamerican.com/article/cats-recognize-their-own-names-even-if-they-choose-to-ignore-them/']],
+      ['Scientific American, "Cats Recognize Their Own Names, Even If They Choose to Ignore Them".', '']],
     faq: [['Why does my cat ignore me when I call its name?', 'Recognising a name and acting on it are different things. The study found cats notice their names; it did not find that they come when called.'],
       ['Does a cat understand that the name means itself?', 'That is not known. The researchers suggest cats may simply link the sound of the name with food, petting or play.']] },
   { slug: 'the-queue', no: '003', subject: 'The queue', verdict: 'Under review', vc: 'review', img: 'oob-3.jpg',

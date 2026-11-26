@@ -1,0 +1,29 @@
+---
+import Base from '../layouts/Base.astro';
+import { u, shows } from '../data/site.js';
+const ld = [{ '@context': 'https://schema.org', '@type': 'Service', name: 'Character films for brands', provider: { '@type': 'Organization', name: 'SellnShip Solutions' }, areaServed: 'Worldwide', url: 'https://vidatu.com/brands/' }];
+---
+<Base title="Character films for brands | Vidatu" description="The team behind Vidatu makes short, code-built character films for products, launches and explainers." path="/brands/" ld={ld}>
+<div class="wrap plain" style="padding-top:30px">
+  <p class="crumbs"><a href={u('/')}>Vidatu</a> / For brands</p>
+  <h1>We make these for brands.</h1>
+  <p class="lede">The characters on this site are programs, not footage. That makes a new 30-second film fast to produce, easy to change, and consistent from the first episode to the fiftieth.</p>
+  <div class="actions" style="margin-bottom:60px"><a class="btn" href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">Email us about a film</a><a class="btn ghost" href={u('/#shows')}>See the characters</a></div>
+  <div class="prose">
+    <h2>What you get</h2>
+    <p>A vertical film of about 30 seconds, ready to post on YouTube Shorts, Instagram Reels and your own site: script, animation, voice or no voice, captions and sound. We can build a character for your brand, or explain your product with one clear idea per film.</p>
+    <h2>How it runs</h2>
+    <ol>
+      <li>You tell us the one thing the viewer should remember.</li>
+      <li>We write the script and check every claim in it.</li>
+      <li>We build and animate it in code, then add voice, captions and sound.</li>
+      <li>You get the finished file. Changes are edits to the script, not a reshoot.</li>
+    </ol>
+    <h2>See the range</h2>
+    <ul class="chips">{shows.map(s => <li><a href={u('/' + s.id + '/')}>{s.short === 'Lab' ? 'The Lab' : s.name}</a></li>)}</ul>
+    <h2>Who we are</h2>
+    <p>SellnShip Solutions, Chandigarh, India. Write to <a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a>.</p>
+  </div>
+  <div style="height:60px"></div>
+</div>
+</Base>

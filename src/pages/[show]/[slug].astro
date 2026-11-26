@@ -1,0 +1,49 @@
+---
+import Base from '../../layouts/Base.astro';
+import { u, shows, videos, reports, showOf, TOPICS, CHECKED, host } from '../../data/site.js';
+export function getStaticPaths() { return videos.map(v => ({ params: { show: v.show, slug: v.slug }, props: { v } })); }
+const { v } = Astro.props, s = showOf(v.show), r = reports.find(x => x.slug === v.slug && v.show === 'oob'), list = videos.filter(x => x.show === v.show), i = list.indexOf(v), prev = list[i - 1], next = list[i + 1];
+const h1 = r?.h1 || v.title, answer = r?.answer || v.answer, url = `https://vidatu.com/${s.id}/${v.slug}/`, ep = `${s.one} ${String(v.n).padStart(3, '0')}`;
+const sources = r ? r.sources.map(x => ({ text: x[0], link: x[1] })) : v.notes;
+const ld = [
+  { '@context': 'https://schema.org', '@type': 'Article', headline: h1, description: answer, image: 'https://vidatu.com/img/' + v.img, url, author: { '@type': 'Organization', name: 'Vidatu' }, publisher: { '@type': 'Organization', name: 'Vidatu' }, datePublished: '2026-11-26', dateModified: '2026-11-26' },
+  { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Vidatu', item: 'https://vidatu.com/' }, { '@type': 'ListItem', position: 2, name: s.name, item: `https://vidatu.com/${s.id}/` }, { '@type': 'ListItem', position: 3, name: h1, item: url }] },
+  ...(r ? [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: r.faq.map(f => ({ '@type': 'Question', name: f[0], acceptedAnswer: { '@type': 'Answer', text: f[1] } })) }] : [])
+];
+---
+<Base title={`${h1} | ${s.short === 'Lab' ? 'Vidatu Lab' : s.name} | Vidatu`} description={r?.desc || answer} path={`/${s.id}/${v.slug}/`} ld={ld} image={'/img/' + v.img} theme={s}>
+<div class="wrap themed" style="padding-top:30px">
+  <p class="crumbs"><a href={u('/')}>Vidatu</a> / <a href={u('/' + s.id + '/')}>{s.short === 'Lab' ? 'The Lab' : s.name}</a> / {ep}</p>
+  <ul class="kicker"><li><span>Show</span><a href={u('/' + s.id + '/')}>{s.title}</a></li><li><span>{s.one}</span>{String(v.n).padStart(3, '0')}</li><li><span>Topic</span><a href={u('/topics/' + v.topic + '/')}>{TOPICS[v.topic][0]}</a></li><li><span>Last checked</span>{CHECKED}</li></ul>
+  <h1 style="font-size:clamp(40px,6.4vw,84px);max-width:12em">{h1}</h1>
+  <div class="article">
+    <div class="prose">
+      <div class="answer"><b>The short answer</b><p>{answer}</p></div>
+      {r && r.body.map(p => <p>{p}</p>)}
+      {v.checked && <><h2>What we checked</h2><p>{v.checked.claim}.</p><p><b>{v.checked.verdict}</b> on {CHECKED}, against the {sources.length > 1 ? 'sources' : 'source'} below.</p></>}
+      <h2>{sources.length ? 'Sources and notes' : 'Sources'}</h2>
+      {sources.length ? <ul>{sources.map(x => <li>{x.text} {x.link && <a href={x.link} rel="noopener">{host(x.link)}</a>}</li>)}</ul> : <p>None needed: this report is an observation and makes no factual claim.</p>}
+      {r && <><h2>Questions people ask</h2>{r.faq.map(f => <details><summary>{f[0]}</summary><p>{f[1]}</p></details>)}</>}
+      <h2>Over to you</h2>
+      <p>{v.pin}</p>
+      {(r?.transcript || v.transcript).length > 0 && <><h2>Word for word</h2><details><summary>Read the transcript</summary><p>{(r?.transcript || v.transcript).join(' ')}</p></details></>}
+    </div>
+    <aside>
+      {v.show === 'lab' && v.n === 1 ? <><canvas id="wave" style="height:420px" aria-label="Live pendulum wave: pull sideways and let go"></canvas><div class="controls"><button class="btn" id="wave-restart" type="button">Start again</button><button class="btn ghost" id="wave-sound" type="button" aria-pressed="false">Sound off</button><span id="wave-t"></span></div><input id="wave-n" type="hidden" value="15"><span id="wave-nv" hidden></span></>
+       : v.show === 'lab' && v.n === 2 ? <><canvas id="board" data-live={u('/js/oob-live.js')} aria-label="Four hundred balls falling through twelve rows of pegs. Tap to drop them again."></canvas><p style="margin-top:12px;font-size:15px;opacity:.8;text-align:center">Running live. Tap to drop them again.</p></>
+       : v.show === 'lab' && v.n === 3 ? <><canvas id="chaos" data-live={u('/js/oob-live.js')} aria-label="Forty double pendulums. Tap to release them again."></canvas><p style="margin-top:12px;font-size:15px;opacity:.8;text-align:center">Running live. Tap to release them again.</p></>
+       : <figure class="specimen"><img src={u('/img/' + v.img)} alt={`${s.short}: ${h1}`} width="640" height="480" loading="eager">{r && <span class={'stamp ' + r.vc}>{r.verdict}</span>}</figure>}
+      <p style="margin-top:36px">The 30-second film is coming to <a href="https://www.youtube.com/@vidatutv">YouTube</a>.</p>
+    </aside>
+  </div>
+  <nav class="pager" aria-label={'More from ' + s.short}>{prev ? <a href={u(`/${s.id}/${prev.slug}/`)}>← {prev.title}</a> : <a href={u('/' + s.id + '/')}>← All from {s.short === 'Lab' ? 'the Lab' : s.short}</a>}{next ? <a href={u(`/${s.id}/${next.slug}/`)}>{next.title} →</a> : <a href={u('/' + s.id + '/')}>All from {s.short === 'Lab' ? 'the Lab' : s.short} →</a>}</nav>
+  <div style="height:80px"></div>
+</div>
+{v.show === 'lab' && v.n === 1 && <script is:inline src={u('/js/pendulum.js')} defer></script>}
+{v.show === 'lab' && v.n === 2 && <script is:inline>
+(() => { const c = document.getElementById('board'); import(c.dataset.live).then(m => m.mountBoard(c)).catch(() => {}); })();
+</script>}
+{v.show === 'lab' && v.n === 3 && <script is:inline>
+(() => { const c = document.getElementById('chaos'); import(c.dataset.live).then(m => m.mountChaos(c)).catch(() => {}); })();
+</script>}
+</Base>

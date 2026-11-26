@@ -1,0 +1,24 @@
+---
+import Base from '../../layouts/Base.astro';
+import { u, reports } from '../../data/site.js';
+const ld = [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Vidatu', item: 'https://vidatu.com/' }, { '@type': 'ListItem', position: 2, name: 'Inspector Oob', item: 'https://vidatu.com/oob/' }] }];
+---
+<Base title="Inspector Oob: field reports on humans | Vidatu" description="An alien auditor studies one human habit at a time and stamps a verdict. All of Inspector Oob's reports, with the research behind them." path="/oob/" ld={ld} image="/img/oob.jpg">
+<div class="wrap">
+  <p class="crumbs"><a href={u('/')}>Vidatu</a> / Inspector Oob</p>
+  <div class="hero" style="padding-top:0">
+    <div>
+      <ul class="formline"><li><span>Show</span>Reports</li><li><span>Length</span>30 seconds each</li></ul>
+      <h1>Inspector Oob</h1>
+      <p class="lede">An alien auditor sent to study humans. He picks one habit, describes it exactly as it looks from outside, and stamps a verdict. He is growing fond of the species and would rather not discuss it.</p>
+      <ul class="formline"><li><span>Always</span>opens with the report number, ends on the stamp</li><li><span>Never</span>mocks a culture, a country or a group</li></ul>
+    </div>
+    <figure class="specimen"><img src={u('/img/avatar.jpg')} alt="Inspector Oob: a violet, teardrop-shaped alien with one antenna and a dark visor showing a mint-green smile" width="720" height="720"></figure>
+  </div>
+  <section>
+    <h2>All reports</h2>
+    <ol class="reports">{reports.map(r => <li><a href={u('/oob/' + r.slug + '/')}><span class="no">{r.no}</span><h3>{r.h1}</h3><p>{r.finding}</p><div class="verdict"><span class={'stamp ' + r.vc}>{r.verdict}</span></div></a></li>)}
+      <li><a aria-disabled="true" style="opacity:.6"><span class="no">004</span><h3>Small talk</h3><p>Inspection in progress.</p></a></li></ol>
+  </section>
+</div>
+</Base>

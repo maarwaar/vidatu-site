@@ -1,0 +1,47 @@
+---
+import Base from '../layouts/Base.astro';
+import { u, shows, reports } from '../data/site.js';
+const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidatu', url: 'https://vidatu.com/' }];
+---
+<Base title="Vidatu: an alien is auditing humans" description="Inspector Oob files 30-second field reports on human habits. His colleagues explain the rest of the universe. Every fact has a source." path="/" ld={ld}>
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <ul class="formline"><li><span>Filed by</span>Inspector Oob</li><li><span>Subject</span>humans</li></ul>
+      <h1>An alien is auditing humans.</h1>
+      <p class="lede">Inspector Oob files one 30-second report on one human habit. Clapping. Queues. Your cat. Each report ends with a stamped verdict, and every fact in it has a source.</p>
+      <div class="actions"><a class="btn" href={u('/oob/')}>Read the reports</a><a class="btn ghost" href="https://www.youtube.com/@vidatutv">Watch on YouTube</a></div>
+    </div>
+    <figure class="specimen">
+      <video autoplay muted loop playsinline poster={u('/img/oob.jpg')} aria-label="Inspector Oob, a violet alien with a visor for a face, studying a hologram of a cat"><source src={u('/img/oob-loop.mp4')} type="video/mp4"></video>
+      <span class="stamp review">Under review</span>
+    </figure>
+  </div>
+  <section>
+    <h2>Latest reports</h2>
+    <ol class="reports">{reports.map(r => <li><a href={u('/oob/' + r.slug + '/')}><span class="no">{r.no}</span><h3>{r.h1}</h3><p>{r.finding}</p><div class="verdict"><span class={'stamp ' + r.vc}>{r.verdict}</span></div></a></li>)}</ol>
+  </section>
+  <section>
+    <h2>Seven shows. One rule: it has to be true.</h2>
+    <div class="shows">{shows.map(s => s.live
+      ? <a class="show" href={u('/' + s.id + '/')} style={`background:${s.bg};color:${s.ink}`}><img src={u('/img/' + s.img)} alt="" loading="lazy"><div><small>{s.format}</small><b>{s.name}</b><span>{s.line}</span></div></a>
+      : <div class="show" style={`background:${s.bg};color:${s.ink}`}><img src={u('/img/' + s.img)} alt="" loading="lazy"><div><small>{s.format} · page being built</small><b>{s.name}</b><span>{s.line}</span></div></div>)}</div>
+  </section>
+</div>
+<div class="lab" id="lab"><div class="wrap grid">
+  <div>
+    <h2>The Lab. No words, just the rule.</h2>
+    <p class="note">This is not a video. Fifteen pendulums are swinging in your browser right now, each a little faster than the last. They drift into waves, then a mess, then land back in step every 24 seconds.</p>
+    <p class="note">Every Vidatu film is made in code, so here you can run the real thing. Tap it to start again, or change how many there are.</p>
+  </div>
+  <div>
+    <canvas id="wave" aria-label="Live pendulum wave: coloured dots swinging at slightly different speeds"></canvas>
+    <div class="controls"><button class="btn" id="wave-restart" type="button">Start again</button><label>Pendulums <input id="wave-n" type="range" min="5" max="30" value="15"> <span id="wave-nv">15</span></label><span id="wave-t"></span></div>
+  </div>
+</div></div>
+<div class="wrap"><section id="sources">
+  <h2>Every fact has a source</h2>
+  <p class="note">If a film states a number, its page names where the number came from, with a link and the date it was checked. If we get one wrong, we fix the film and say so.</p>
+</section></div>
+<script is:inline src={u('/js/pendulum.js')} defer></script>
+</Base>

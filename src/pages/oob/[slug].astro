@@ -10,10 +10,10 @@ const ld = [
 ];
 ---
 <Base title={r.h1 + ' | Oob Report ' + r.no + ' | Vidatu'} description={r.desc} path={'/oob/' + r.slug + '/'} ld={ld} image={'/img/' + r.img}>
-<div class="wrap">
+<div class="wrap" style="padding-top:30px">
   <p class="crumbs"><a href={u('/')}>Vidatu</a> / <a href={u('/oob/')}>Inspector Oob</a> / Report {r.no}</p>
-  <ul class="formline"><li><span>Report</span>{r.no}</li><li><span>Subject</span>{r.subject}</li><li><span>Last checked</span>26 Nov 2026</li></ul>
-  <h1>{r.h1}</h1>
+  <ul class="kicker"><li><span>Report</span>{r.no}</li><li><span>Subject</span>{r.subject}</li><li><span>Last checked</span>26 Nov 2026</li></ul>
+  <h1 style="font-size:clamp(40px,6.4vw,84px);max-width:11em">{r.h1}</h1>
   <div class="article">
     <div class="prose">
       <div class="answer"><b>The short answer</b><p>{r.answer}</p></div>

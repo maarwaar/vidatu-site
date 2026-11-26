@@ -4,30 +4,28 @@ import { u, shows, reports } from '../data/site.js';
 const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidatu', url: 'https://vidatu.com/' }];
 ---
 <Base title="Vidatu: an alien is auditing humans" description="Inspector Oob files 30-second field reports on human habits. His colleagues explain the rest of the universe. Every fact has a source." path="/" ld={ld}>
-<div class="wrap">
+<div class="stage"><div class="wrap">
   <div class="hero">
     <div>
-      <ul class="formline"><li><span>Filed by</span>Inspector Oob</li><li><span>Subject</span>humans</li></ul>
-      <h1>An alien is auditing humans.</h1>
-      <p class="lede">Inspector Oob files one 30-second report on one human habit. Clapping. Queues. Your cat. Each report ends with a stamped verdict, and every fact in it has a source.</p>
+      <ul class="kicker"><li><span>Filed by</span>Inspector Oob</li><li><span>Subject</span>humans</li></ul>
+      <h1>An alien is auditing <em>humans.</em></h1>
+      <p class="lede">Inspector Oob files one 30-second report on one human habit. Clapping. Queues. Your cat. Each ends with a stamped verdict, and every fact has a source.</p>
       <div class="actions"><a class="btn" href={u('/oob/')}>Read the reports</a><a class="btn ghost" href="https://www.youtube.com/@vidatutv">Watch on YouTube</a></div>
     </div>
     <figure class="specimen">
-      <video autoplay muted loop playsinline poster={u('/img/oob.jpg')} aria-label="Inspector Oob, a violet alien with a visor for a face, studying a hologram of a cat"><source src={u('/img/oob-loop.mp4')} type="video/mp4"></video>
+      <video autoplay muted loop playsinline poster={u('/img/oob-hero.jpg')} aria-label="Inspector Oob, a violet alien with a visor for a face, projecting a hologram of a cat labelled: specimen cat, status in charge"><source src={u('/img/oob-hero.mp4')} type="video/mp4"></video>
       <span class="stamp review">Under review</span>
     </figure>
   </div>
-  <section>
-    <h2>Latest reports</h2>
-    <ol class="reports">{reports.map(r => <li><a href={u('/oob/' + r.slug + '/')}><span class="no">{r.no}</span><h3>{r.h1}</h3><p>{r.finding}</p><div class="verdict"><span class={'stamp ' + r.vc}>{r.verdict}</span></div></a></li>)}</ol>
-  </section>
-  <section>
-    <h2>Seven shows. One rule: it has to be true.</h2>
-    <div class="shows">{shows.map(s => s.live
-      ? <a class="show" href={u('/' + s.id + '/')} style={`background:${s.bg};color:${s.ink}`}><img src={u('/img/' + s.img)} alt="" loading="lazy"><div><small>{s.format}</small><b>{s.name}</b><span>{s.line}</span></div></a>
-      : <div class="show" style={`background:${s.bg};color:${s.ink}`}><img src={u('/img/' + s.img)} alt="" loading="lazy"><div><small>{s.format} · page being built</small><b>{s.name}</b><span>{s.line}</span></div></div>)}</div>
-  </section>
-</div>
+</div></div>
+<div class="band"><div class="wrap">
+  <h2>Latest reports</h2>
+  <ol class="holos">{reports.map(r => <li><a class="holo" href={u('/oob/' + r.slug + '/')}><span class="no">REPORT {r.no}</span><h3>{r.h1}</h3><p>{r.finding}</p><span class={'stamp ' + r.vc}>{r.verdict}</span></a></li>)}</ol>
+</div></div>
+{shows.filter(s => !s.live).map(s => <section class="world" style={`--bg:${s.bg};--fg:${s.ink};background:${s.bg}`}><div class="wrap grid">
+  <div class="pic"><video muted loop playsinline preload="none" poster={u('/img/' + s.img)} data-loop><source src={u('/img/' + s.vid)} type="video/mp4"></video></div>
+  <div><p class="fmt">{s.format}</p><h2>{s.name}</h2><p class="line">{s.line}</p><span class="soon">Page being built</span></div>
+</div></section>)}
 <div class="lab" id="lab"><div class="wrap grid">
   <div>
     <h2>The Lab. No words, just the rule.</h2>
@@ -39,9 +37,12 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidat
     <div class="controls"><button class="btn" id="wave-restart" type="button">Start again</button><label>Pendulums <input id="wave-n" type="range" min="5" max="30" value="15"> <span id="wave-nv">15</span></label><span id="wave-t"></span></div>
   </div>
 </div></div>
-<div class="wrap"><section id="sources">
+<div class="band light" id="sources"><div class="wrap">
   <h2>Every fact has a source</h2>
-  <p class="note">If a film states a number, its page names where the number came from, with a link and the date it was checked. If we get one wrong, we fix the film and say so.</p>
-</section></div>
+  <p class="note" style="margin:0">If a film states a number, its page names where the number came from, with a link and the date it was checked. If we get one wrong, we fix the film and say so.</p>
+</div></div>
 <script is:inline src={u('/js/pendulum.js')} defer></script>
+<script is:inline>
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) { const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()), { threshold: .25 }); document.querySelectorAll('video[data-loop]').forEach(v => io.observe(v)); }
+</script>
 </Base>

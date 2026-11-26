@@ -12,11 +12,11 @@ const org = { '@context': 'https://schema.org', '@type': 'Organization', name: '
 <link rel="canonical" href={canon}>{import.meta.env.BASE_URL !== "/" && <meta name="robots" content="noindex">}{beacon && <script is:inline type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: beacon })}></script>}<link rel="icon" href={u('/img/avatar.jpg')}>
 <meta property="og:title" content={title}><meta property="og:description" content={description}><meta property="og:image" content={'https://vidatu.com' + image}><meta property="og:url" content={canon}><meta property="og:site_name" content="Vidatu"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
 {[org, ...ld].map(x => <script type="application/ld+json" set:html={JSON.stringify(x)} />)}
 <style is:global>
 :root{--ink:#120E2A;--violet:#1A1340;--cream:#FBF7EA;--mint:#7CFFCB;--amber:#FFB52E;--oob:#6C4DFF;--absurd:#FF6B5E;--approved:#4DE08A;--review:#B9A6FF}
-*{box-sizing:border-box}html{scroll-behavior:smooth}
+*{box-sizing:border-box}html{scroll-behavior:smooth}[hidden]{display:none!important}
 body{margin:0;color:var(--cream);background:var(--ink);font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:18px;line-height:1.5}
 a{color:inherit}a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid var(--mint);outline-offset:3px;border-radius:3px}
 img,video{max-width:100%;display:block}
@@ -54,7 +54,7 @@ a.holo:hover{transform:translateY(-4px);box-shadow:0 0 46px rgba(124,255,203,.3)
 .world h2{font-size:clamp(60px,12vw,168px);line-height:.82;margin:0 0 18px;font-variation-settings:"wdth" 75;letter-spacing:-.035em}
 .world .fmt{font-weight:700;font-size:16px;letter-spacing:.04em;margin:0 0 14px;opacity:.85}
 .world p.line{font-size:clamp(19px,2.1vw,24px);line-height:1.35;max-width:22em;margin:0 0 20px}
-.world .pic video,.world .pic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:22px;box-shadow:0 26px 60px rgba(0,0,0,.35);transform:rotate(-2deg)}.world:nth-of-type(even) .pic video{transform:rotate(2deg)}
+.world .pic video,.world .pic img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:22px;box-shadow:0 26px 60px rgba(0,0,0,.35)}
 .world .soon{display:inline-block;font-size:15px;font-weight:700;padding:7px 14px 8px;border-radius:999px;box-shadow:inset 0 0 0 2px currentColor;opacity:.85}
 .lab{background:#070B20;padding:80px 0}.lab h2{color:var(--amber)}.lab .grid{display:grid;gap:27px 48px;align-items:center}@media(min-width:900px){.lab .grid{grid-template-columns:.9fr 1.1fr}}
 #wave{width:100%;height:440px;border-radius:18px;background:linear-gradient(#16245A,#0A0F2A);cursor:pointer;touch-action:manipulation}
@@ -70,9 +70,34 @@ details{border-bottom:1.5px solid rgba(251,247,234,.35);max-width:40em}details:f
 summary{cursor:pointer;font-weight:700;font-size:20px;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:16px}summary::-webkit-details-marker{display:none}summary::after{content:"+";font-weight:400;color:var(--mint)}details[open] summary::after{content:"−"}details>*:not(summary){margin:0 0 24px}
 .pager{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1.5px solid rgba(251,247,234,.35);padding:24px 0 0;margin-top:54px}
 footer{background:#0B0819;color:var(--cream);padding:54px 0;font-size:16px}footer .cols{display:grid;gap:27px}@media(min-width:760px){footer .cols{grid-template-columns:1.4fr 1fr 1fr}}footer b{display:block;margin-bottom:8px;color:var(--mint)}footer ul{list-style:none;margin:0;padding:0}footer a{text-underline-offset:3px}
+.percy{position:fixed;inset:0 0 auto 0;height:7px;background:rgba(255,255,255,.14);z-index:60;--sp:0%}
+.percy i{position:absolute;inset:0 auto 0 0;width:var(--sp);background:#FFD23F;border-radius:0 6px 6px 0}
+.percy b{position:absolute;left:clamp(17px,var(--sp),calc(100% - 17px));top:-3px;width:30px;height:30px;margin-left:-15px;border-radius:50%;background:#FFD23F;box-shadow:0 3px 10px rgba(0,0,0,.35)}
+.percy b::before,.percy b::after{content:"";position:absolute;top:10px;width:5px;height:7px;border-radius:50%;background:#17122B}.percy b::before{left:8px}.percy b::after{right:8px}
+.percy u{position:absolute;left:50%;bottom:6px;width:10px;height:5px;margin-left:-5px;border-radius:0 0 10px 10px;background:#17122B}
+.percy.stall u{height:3px;border-radius:2px;bottom:7px}.percy.stall b{animation:jit .18s linear infinite}@keyframes jit{50%{transform:translateX(1.5px)}}
+.percy em{position:absolute;left:clamp(22px,var(--sp),calc(100% - 22px));top:32px;transform:translateX(-50%);font-style:normal;font-size:12px;font-weight:700;background:#17122B;color:#FFD23F;padding:1px 7px;border-radius:999px;white-space:nowrap}
+#melt{position:fixed;inset:0;z-index:-1;background:var(--ink)}
+.melt .stage,.melt .world,.melt .lab,.melt .band:not(.light){background:transparent!important}
+.melt .stage::before{display:none}
+.world .pic,.world .txt{will-change:transform}
+@media(min-width:860px){.world{min-height:88vh;display:grid;align-items:center}.world>.wrap{width:100%}}
+@media(max-width:520px){.actions .btn{padding:12px 17px 13px;font-size:16px}.actions{gap:10px}}
+@media(prefers-reduced-motion:no-preference){.fx .world .pic{transform:translateX(calc((1 - var(--p,1))*var(--dir,1)*-22vw)) rotate(calc((1 - var(--p,1))*var(--dir,1)*-14deg)) scale(calc(.72 + .28*var(--p,1)))}.fx .world .txt{transform:translateX(calc((1 - var(--p,1))*var(--dir,1)*14vw));opacity:calc(.15 + .85*var(--p,1))}.fx .holo{transform:translateY(calc((1 - var(--p,1))*60px));opacity:var(--p,1)}}
+.world .pic video,.world .pic img{transform:rotate(calc(var(--dir,1)*-2deg))}
+#oob-live{width:100%;max-width:560px;aspect-ratio:3/4;margin:0 auto;display:block;cursor:pointer;touch-action:manipulation}
+.hero .hint{text-align:center;font-size:15px;opacity:.8;margin:6px 0 0}.hero .hint a{color:var(--mint)}
+.hero .specimen .stamp.hit{animation:slam .45s cubic-bezier(.2,1.6,.4,1) both}
 </style>
 </head>
 <body data-show={show}>
+<div class="percy" aria-hidden="true"><i></i><b><u></u></b><em>0%</em></div>
+<script is:inline>
+(() => { const el = document.querySelector('.percy'), em = el.querySelector('em'); let tick = false;
+  const up = () => { tick = false; const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? scrollY / max : 0, shown = p < .9 ? p / .9 * .99 : (p < .995 ? .99 : 1);
+    el.style.setProperty('--sp', (shown * 100).toFixed(2) + '%'); em.textContent = Math.floor(shown * 100) + '%'; el.classList.toggle('stall', shown === .99); };
+  addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(up); } }, { passive: true }); addEventListener('resize', up); up(); })();
+</script>
 <div class="stage"><div class="wrap"><header class="top">
   <a class="mark" href={u('/')}><img src={u('/img/avatar.jpg')} alt="" width="30" height="30">Vidatu</a>
   <nav aria-label="Main"><a href={u('/oob/')}>Shows</a><a href={u('/#lab')}>Lab</a><a href={u('/#sources')}>Sources</a><a href={u('/#brands')}>For brands</a></nav>

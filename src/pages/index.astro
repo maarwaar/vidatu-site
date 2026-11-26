@@ -4,7 +4,8 @@ import { u, shows, reports } from '../data/site.js';
 const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidatu', url: 'https://vidatu.com/' }];
 ---
 <Base title="Vidatu: an alien is auditing humans" description="Inspector Oob files 30-second field reports on human habits. His colleagues explain the rest of the universe. Every fact has a source." path="/" ld={ld}>
-<div class="stage"><div class="wrap">
+<div id="melt"></div>
+<div class="stage" data-bg="#1A1340"><div class="wrap">
   <div class="hero">
     <div>
       <ul class="kicker"><li><span>Filed by</span>Inspector Oob</li><li><span>Subject</span>humans</li></ul>
@@ -12,29 +13,31 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidat
       <p class="lede">Inspector Oob files one 30-second report on one human habit. Clapping. Queues. Your cat. Each ends with a stamped verdict, and every fact has a source.</p>
       <div class="actions"><a class="btn" href={u('/oob/')}>Read the reports</a><a class="btn ghost" href="https://www.youtube.com/@vidatutv">Watch on YouTube</a></div>
     </div>
-    <figure class="specimen">
+    <figure class="specimen" data-live={u('/js/oob-live.js')} data-base={u('/oob/')}>
       <video autoplay muted loop playsinline poster={u('/img/oob-hero.jpg')} aria-label="Inspector Oob, a violet alien with a visor for a face, projecting a hologram of a cat labelled: specimen cat, status in charge"><source src={u('/img/oob-hero.mp4')} type="video/mp4"></video>
-      <span class="stamp review">Under review</span>
+      <canvas id="oob-live" hidden aria-label="Inspector Oob, live. He follows your pointer. Tap him and he stamps a verdict on the specimen in his hologram."></canvas>
+      <span class="stamp review" id="oob-stamp" hidden>Under review</span>
+      <p class="hint" id="oob-hint" hidden>He is watching you. Tap him to make him rule. <a id="oob-link" href={u('/oob/your-cat/')}>Read Report 002</a></p>
     </figure>
   </div>
 </div></div>
-<div class="band"><div class="wrap">
+<div class="band" data-bg="#120E2A"><div class="wrap">
   <h2>Latest reports</h2>
   <ol class="holos">{reports.map(r => <li><a class="holo" href={u('/oob/' + r.slug + '/')}><span class="no">REPORT {r.no}</span><h3>{r.h1}</h3><p>{r.finding}</p><span class={'stamp ' + r.vc}>{r.verdict}</span></a></li>)}</ol>
 </div></div>
-{shows.filter(s => !s.live).map(s => <section class="world" style={`--bg:${s.bg};--fg:${s.ink};background:${s.bg}`}><div class="wrap grid">
+{shows.filter(s => !s.live).map((s, n) => <section class="world" data-bg={s.melt || s.bg} style={`--bg:${s.bg};--fg:${s.ink};--dir:${n % 2 ? -1 : 1};background:${s.bg}`}><div class="wrap grid">
   <div class="pic"><video muted loop playsinline preload="none" poster={u('/img/' + s.img)} data-loop><source src={u('/img/' + s.vid)} type="video/mp4"></video></div>
-  <div><p class="fmt">{s.format}</p><h2>{s.name}</h2><p class="line">{s.line}</p><span class="soon">Page being built</span></div>
+  <div class="txt"><p class="fmt">{s.format}</p><h2>{s.name}</h2><p class="line">{s.line}</p><span class="soon">Page being built</span></div>
 </div></section>)}
-<div class="lab" id="lab"><div class="wrap grid">
+<div class="lab" id="lab" data-bg="#070B20"><div class="wrap grid">
   <div>
     <h2>The Lab. No words, just the rule.</h2>
     <p class="note">This is not a video. Fifteen pendulums are swinging in your browser right now, each a little faster than the last. They drift into waves, then a mess, then land back in step every 24 seconds.</p>
-    <p class="note">Every Vidatu film is made in code, so here you can run the real thing. Tap it to start again, or change how many there are.</p>
+    <p class="note">Every Vidatu film is made in code, so here you can run the real thing. Pull them sideways and let go. Turn the sound on: each pendulum plays its own note, as in the film.</p>
   </div>
   <div>
     <canvas id="wave" aria-label="Live pendulum wave: coloured dots swinging at slightly different speeds"></canvas>
-    <div class="controls"><button class="btn" id="wave-restart" type="button">Start again</button><label>Pendulums <input id="wave-n" type="range" min="5" max="30" value="15"> <span id="wave-nv">15</span></label><span id="wave-t"></span></div>
+    <div class="controls"><button class="btn" id="wave-restart" type="button">Start again</button><button class="btn ghost" id="wave-sound" type="button" aria-pressed="false">Sound off</button><label>Pendulums <input id="wave-n" type="range" min="5" max="30" value="15"> <span id="wave-nv">15</span></label><span id="wave-t"></span></div>
   </div>
 </div></div>
 <div class="band light" id="sources"><div class="wrap">
@@ -43,6 +46,27 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidat
 </div></div>
 <script is:inline src={u('/js/pendulum.js')} defer></script>
 <script is:inline>
-if (!matchMedia('(prefers-reduced-motion: reduce)').matches && 'IntersectionObserver' in window) { const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()), { threshold: .25 }); document.querySelectorAll('video[data-loop]').forEach(v => io.observe(v)); }
+(() => { const calm = matchMedia('(prefers-reduced-motion: reduce)').matches, root = document.documentElement;
+  // looping clips play only while on screen
+  if (!calm && 'IntersectionObserver' in window) { const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()), { threshold: .2 }); document.querySelectorAll('video[data-loop]').forEach(v => io.observe(v)); }
+  // background colour melts from one band into the next; characters swing in as their band arrives
+  const bands = [...document.querySelectorAll('[data-bg]')], melt = document.getElementById('melt'), fx = [...document.querySelectorAll('.world, .holo')];
+  const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)), mix = (a, b, k) => 'rgb(' + a.map((v, i) => Math.round(v + (b[i] - v) * k)).join(',') + ')';
+  const cols = bands.map(b => rgb(b.dataset.bg)); let tick = false; root.classList.add('melt'); if (!calm) root.classList.add('fx');
+  const up = () => { tick = false; const mid = innerHeight * .5; let k = 0;
+    for (let i = 0; i < bands.length; i++) if (bands[i].getBoundingClientRect().top <= mid) k = i;
+    const nx = bands[k + 1], zone = innerHeight * .3; let col = mix(cols[k], cols[k], 0);
+    if (nx) { const dist = nx.getBoundingClientRect().top - mid; if (dist < zone) col = mix(cols[k], cols[k + 1], 1 - dist / zone); }
+    melt.style.background = col;
+    if (!calm) fx.forEach(el => { const r = el.getBoundingClientRect(), p = Math.max(0, Math.min(1, (innerHeight - r.top) / (innerHeight * .75))); el.style.setProperty('--p', (1 - Math.pow(1 - p, 3)).toFixed(3)); }); };
+  addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(up); } }, { passive: true }); addEventListener('resize', up); up();
+  // live Oob: the film's own 3D character, running here
+  const fig = document.querySelector('[data-live]'), cv = document.getElementById('oob-live');
+  if (fig && cv && !calm) import(fig.dataset.live).then(m => { const stamp = document.getElementById('oob-stamp'), link = document.getElementById('oob-link');
+    cv.hidden = false; m.mount(cv, { verdict: s => { stamp.textContent = s.verdict; stamp.className = 'stamp ' + s.cls; stamp.hidden = false; stamp.classList.remove('hit'); void stamp.offsetWidth; stamp.classList.add('hit'); },
+      specimen: s => { stamp.hidden = true; link.href = fig.dataset.base + s.slug + '/'; link.textContent = 'Read Report ' + s.no; } });
+    fig.querySelector('video').remove(); document.getElementById('oob-hint').hidden = false; document.fonts && document.fonts.load('700 30px "JetBrains Mono"'); }).catch(() => { document.getElementById('oob-stamp').hidden = false; });
+  else if (fig) document.getElementById('oob-stamp').hidden = false;
+})();
 </script>
 </Base>

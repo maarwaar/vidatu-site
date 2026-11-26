@@ -6,7 +6,7 @@ export const shows = [
   { id: 'percy', name: 'Percy', format: 'Lives', line: 'A progress bar with 30 seconds to live. One fact per life.', img: 'percy.jpg', vid: 'percy.mp4', bg: '#2447F2', ink: '#fff' },
   { id: 'old-h', name: 'Old H', format: 'Tales', line: 'A 13.8-billion-year-old hydrogen atom. He was there.', img: 'oldh.jpg', vid: 'oldh.mp4', bg: '#C96F1E', ink: '#fff' },
   { id: 'gulp', name: 'Gulp', format: 'Snacks', line: 'A polite, pocket-sized black hole who asks before she eats the Moon.', img: 'gulp.jpg', vid: 'gulp.mp4', bg: '#CDBBFF', ink: '#17122B' },
-  { id: 'yup-and-nope', name: 'Yup & Nope', format: 'Rounds', line: 'Two halves of one creature argue with real facts. You cast the vote.', img: 'duo.jpg', vid: 'duo.mp4', bg: 'linear-gradient(90deg,#FFD9CC 50%,#BFE5E1 50%)', ink: '#17122B' },
+  { id: 'yup-and-nope', name: 'Yup & Nope', format: 'Rounds', line: 'Two halves of one creature argue with real facts. You cast the vote.', img: 'duo.jpg', vid: 'duo.mp4', bg: '#FFD9CC', ink: '#17122B' },
   { id: 'tess', name: 'Tess', format: 'Tricks', line: 'A visitor from the fourth dimension whose magic is geometry.', img: 'tess.jpg', vid: 'tess.mp4', bg: '#0E7C86', ink: '#fff' },
   { id: 'murmur', name: 'Murmur', format: 'Chapters', line: '8,300 dots, one per million people alive. One has you in it.', img: 'murmur.jpg', vid: 'murmur.mp4', bg: '#2A1B6B', ink: '#fff' }
 ];

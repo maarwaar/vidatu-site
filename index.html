@@ -1,256 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Vidatu: an alien is auditing humans</title>
-<meta name="description" content="Inspector Oob files 30-second field reports on human habits. His colleagues explain the rest of the universe. Every fact has a source.">
-<meta property="og:title" content="Vidatu: an alien is auditing humans">
-<meta property="og:description" content="30-second field reports on human habits, filed by Inspector Oob. Every fact has a source.">
-<meta property="og:image" content="https://vidatu.com/img/avatar.jpg">
-<link rel="icon" href="img/avatar.jpg">
-<link rel="canonical" href="https://vidatu.com/">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&display=swap" rel="stylesheet">
-<style>
-:root{
-  --paper:#EAF0E3; --paper-deep:#D5DECC; --rule:#C3CFB8;
-  --ink:#17122B; --oob:#5B3FD9; --mint:#7CFFCB;
-  --absurd:#D8362F; --approved:#17804A; --review:#5B3FD9;
-  --line:27px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--paper);color:var(--ink);
-  font-family:"Bricolage Grotesque",system-ui,sans-serif;font-size:18px;line-height:var(--line);
-  font-variation-settings:"wdth" 100;
-  background-image:repeating-linear-gradient(to bottom,transparent 0,transparent calc(var(--line) - 1px),var(--rule) calc(var(--line) - 1px),var(--rule) var(--line));
-  background-attachment:local}
-a{color:inherit}
-a:focus-visible,summary:focus-visible{outline:3px solid var(--oob);outline-offset:3px;border-radius:2px}
-.sheet{max-width:1080px;margin:0 auto;padding:0 22px;position:relative}
-@media(min-width:900px){
-  .sheet{padding-left:86px}
-  .sheet::before{content:"";position:absolute;left:54px;top:0;bottom:0;width:2px;background:#E58A86;opacity:.7}
-}
-
-/* header */
-.top{display:flex;justify-content:space-between;align-items:baseline;padding:27px 0 0;flex-wrap:wrap;gap:0 24px}
-.mark{font-weight:800;font-size:22px;text-decoration:none;letter-spacing:-.01em}
-.top nav{display:flex;gap:4px 16px;flex-wrap:wrap;font-size:15px}
-.top nav a{text-decoration:none;border-bottom:2px solid transparent}
-.top nav a:hover{border-bottom-color:var(--oob)}
-
-/* hero */
-.hero{display:grid;gap:27px;padding:54px 0 81px;align-items:center}
-@media(min-width:900px){.hero{grid-template-columns:1.2fr .8fr;padding:81px 0 108px}}
-.formline{display:flex;gap:28px;flex-wrap:wrap;font-size:15px;margin:0 0 27px;padding:0;list-style:none}
-.formline li span{opacity:.6;margin-right:8px}
-h1{font-size:clamp(46px,7.6vw,88px);line-height:.93;margin:0 0 27px;font-weight:800;
-  font-variation-settings:"wdth" 82;letter-spacing:-.025em;max-width:8.2em}
-.lede{font-size:21px;line-height:var(--line);max-width:34em;margin:0 0 27px}
-.actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
-.btn{display:inline-block;background:var(--oob);color:#fff;text-decoration:none;font-weight:700;
-  padding:13px 22px 14px;border-radius:999px;line-height:1.2}
-.btn:hover{background:var(--ink)}
-.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
-.btn.ghost:hover{background:var(--ink);color:var(--paper)}
-.specimen{position:relative;margin:0}
-.specimen video,.specimen img{display:block;width:100%;height:auto;border-radius:6px}
-.stamp{display:inline-block;font-weight:800;font-variation-settings:"wdth" 75;text-transform:uppercase;
-  letter-spacing:.06em;line-height:1;padding:7px 12px 8px;border:3px solid currentColor;border-radius:6px;
-  transform:rotate(-7deg);white-space:nowrap}
-.stamp.absurd{color:var(--absurd)} .stamp.approved{color:var(--approved)} .stamp.review{color:var(--review)}
-.specimen .stamp{position:absolute;right:-8px;bottom:-14px;font-size:clamp(18px,2.6vw,28px);background:var(--paper)}
-@media(prefers-reduced-motion:no-preference){
-  .specimen .stamp{animation:slam .5s cubic-bezier(.2,1.6,.4,1) .9s both}
-  @keyframes slam{from{opacity:0;transform:rotate(-18deg) scale(2.6)}to{opacity:1;transform:rotate(-7deg) scale(1)}}
-}
-
-/* sections */
-section{padding:0 0 81px}
-h2{font-size:clamp(32px,5.4vw,54px);line-height:1;margin:0 0 27px;font-weight:800;font-variation-settings:"wdth" 86;letter-spacing:-.02em}
-.note{max-width:38em;margin:0 0 27px}
-
-/* reports */
-.reports{list-style:none;margin:0;padding:0;border-top:2px solid var(--ink)}
-.reports li{display:grid;grid-template-columns:64px 1fr;gap:4px 16px;padding:26px 0 27px;border-bottom:2px solid var(--ink);align-items:center}
-.reports .no{font-weight:800;font-size:30px;font-variation-settings:"wdth" 75}
-.reports h3{margin:0;font-size:24px;line-height:var(--line);font-weight:700}
-.reports p{margin:0;grid-column:2}
-.reports .verdict{grid-column:2;margin-top:10px}
-.reports .stamp{font-size:18px}
-@media(min-width:760px){
-  .reports li{grid-template-columns:84px 1fr auto}
-  .reports .verdict{grid-column:3;grid-row:1 / span 2;margin:0}
-  .reports .stamp{font-size:24px}
-}
-.pending{opacity:.62}
-
-/* cast */
-.cast{display:grid;gap:27px;grid-template-columns:1fr}
-@media(min-width:620px){.cast{grid-template-columns:1fr 1fr}}
-@media(min-width:980px){.cast{grid-template-columns:1fr 1fr 1fr}}
-.cast figure{margin:0}
-.cast img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:6px}
-.cast figcaption{padding-top:13px}
-.cast b{display:block;font-size:22px;font-weight:800}
-
-/* sources */
-details{border-bottom:2px solid var(--ink)}
-details:first-of-type{border-top:2px solid var(--ink)}
-summary{cursor:pointer;font-weight:700;font-size:21px;padding:13px 0 14px;list-style:none;display:flex;justify-content:space-between}
-summary::-webkit-details-marker{display:none}
-summary::after{content:"+";font-weight:400}
-details[open] summary::after{content:"−"}
-details ul{margin:0;padding:0 0 27px 20px;max-width:46em}
-details li{margin-bottom:0}
-
-/* brands */
-.brands{background:var(--ink);color:var(--paper);border-radius:10px;padding:54px 26px;margin-bottom:81px}
-@media(min-width:900px){.brands{padding:81px 64px}}
-.brands h2{color:var(--mint)}
-.brands p{max-width:36em;margin:0 0 27px}
-.brands .btn{background:var(--mint);color:var(--ink)}
-.brands .btn:hover{background:#fff}
-
-footer{padding:0 0 54px;font-size:15px;display:flex;gap:6px 28px;flex-wrap:wrap;justify-content:space-between}
-</style>
-<!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "2e719a0bfca94259b52f0fb168bd8312"}'></script>
-</head>
-<body>
-<div class="sheet">
-
-<header class="top">
-  <a class="mark" href="#top">Vidatu</a>
-  <nav aria-label="Sections">
-    <a href="#reports">Reports</a>
-    <a href="#cast">Colleagues</a>
-    <a href="#sources">Sources</a>
-    <a href="#brands">For brands</a>
-  </nav>
-</header>
-
-<main id="top">
-<div class="hero">
-  <div>
-    <ul class="formline">
-      <li><span>Filed by</span>Inspector Oob</li>
-      <li><span>Subject</span>humans</li>
-    </ul>
-    <h1>An alien is auditing humans.</h1>
-    <p class="lede">Inspector Oob files one 30-second report on one human habit. Clapping. Queues. Your cat. Each report ends with a stamped verdict, and every fact in it has a source.</p>
-    <div class="actions">
-      <a class="btn" href="https://www.youtube.com/@vidatutv">Watch on YouTube</a>
-      <a class="btn ghost" href="#reports">Read the verdicts</a>
-    </div>
-  </div>
-  <figure class="specimen">
-    <video autoplay muted loop playsinline poster="img/oob.jpg" aria-label="Inspector Oob, a violet alien with a visor for a face, studying a hologram of a cat">
-      <source src="img/oob-loop.mp4" type="video/mp4">
-    </video>
-    <span class="stamp review">Under review</span>
-  </figure>
-</div>
-
-<section id="reports">
-  <h2>Reports filed so far</h2>
-  <ol class="reports">
-    <li>
-      <span class="no">001</span>
-      <h3>Clapping</h3>
-      <p>Humans strike their own hands in groups. Nobody decides when it ends. They all simply stop.</p>
-      <div class="verdict"><span class="stamp absurd">Absurd</span></div>
-    </li>
-    <li>
-      <span class="no">002</span>
-      <h3>Your cat</h3>
-      <p>A small predator kept indoors. It knows its name and chooses not to answer. In return, it vibrates.</p>
-      <div class="verdict"><span class="stamp approved">Approved</span></div>
-    </li>
-    <li>
-      <span class="no">003</span>
-      <h3>The queue</h3>
-      <p>No fence, no guard, no law. Skip ahead and the others say nothing. They only stare.</p>
-      <div class="verdict"><span class="stamp review">Under review</span></div>
-    </li>
-    <li class="pending">
-      <span class="no">004</span>
-      <h3>Small talk</h3>
-      <p>Inspection in progress.</p>
-    </li>
-  </ol>
-</section>
-
-<section id="cast">
-  <h2>Oob's colleagues</h2>
-  <p class="note">Oob covers humans. Six others cover everything else, also in 30 seconds.</p>
-  <div class="cast">
-    <figure><img src="img/percy.jpg" alt="Percy, a yellow face riding a glass progress bar" loading="lazy"><figcaption><b>Percy</b>A progress bar with 30 seconds to live. He has to finish one fact before he reaches 100%.</figcaption></figure>
-    <figure><img src="img/oldh.jpg" alt="Old H, a glowing amber ball with heavy eyelids and a moustache" loading="lazy"><figcaption><b>Old H</b>A 13.8-billion-year-old hydrogen atom. He tells the history of the universe as things that happened to him.</figcaption></figure>
-    <figure><img src="img/gulp.jpg" alt="Gulp, a small glossy black ball with pink cheeks, bending a grid of space" loading="lazy"><figcaption><b>Gulp</b>A polite, pocket-sized black hole. She asks before eating the Moon. She does not wait for the answer.</figcaption></figure>
-    <figure><img src="img/duo.jpg" alt="Yup and Nope, a coral half and a teal half of one creature, arguing" loading="lazy"><figcaption><b>Yup &amp; Nope</b>Two halves of one creature. They argue one question with real facts, and you cast the deciding vote.</figcaption></figure>
-    <figure><img src="img/tess.jpg" alt="Tess, a small pink face inside a glass four-dimensional cube" loading="lazy"><figcaption><b>Tess</b>A visitor from the fourth dimension. Her magic tricks are geometry, and she always explains them.</figcaption></figure>
-    <figure><img src="img/murmur.jpg" alt="Murmur, a smiling face made of thousands of coloured dots" loading="lazy"><figcaption><b>Murmur</b>8,300 dots, one for every million people alive. One of those dots has you in it.</figcaption></figure>
-  </div>
-</section>
-
-<section id="sources">
-  <h2>Every fact has a source</h2>
-  <p class="note">If a video states a number, it is listed here with where it came from. Found a mistake? Tell us and we will fix the video.</p>
-
-  <details><summary>Inspector Oob</summary><ul>
-    <li>Applause spreads through a crowd like a contagion, and so does stopping. Mann, Faria, Sumpter &amp; Krause (2013), Journal of the Royal Society Interface.</li>
-    <li>Cats tell their own names from similar words. Saito et al. (2019), Scientific Reports; reported by <a href="https://www.scientificamerican.com/article/cats-recognize-their-own-names-even-if-they-choose-to-ignore-them/">Scientific American</a>.</li>
-  </ul></details>
-
-  <details><summary>Percy</summary><ul>
-    <li>Sealed honey barely spoils: little water, high acidity, and an enzyme from bees. Smithsonian Magazine, "The Science Behind Honey's Eternal Shelf Life".</li>
-    <li>One second is 9,192,631,770 periods of a caesium atom, defined in 1967. <a href="https://www.bipm.org/en/committees/cg/cgpm/13-1967/resolution-1">BIPM, Resolution 1 of the 13th CGPM</a>.</li>
-    <li>Loading bars: many count finished tasks, not time. This describes common installers, not a universal rule.</li>
-  </ul></details>
-
-  <details><summary>Old H</summary><ul>
-    <li>The universe was opaque for about 380,000 years. <a href="https://science.nasa.gov/universe/overview/">NASA Science, Universe overview</a>.</li>
-    <li>The Sun's core is about 15 million °C, where hydrogen fuses into helium. <a href="https://science.nasa.gov/sun/facts">NASA Science, Our Sun: Facts</a>.</li>
-  </ul></details>
-
-  <details><summary>Gulp</summary><ul>
-    <li>Without the Moon: tides about a third, darker nights, an unstable tilt. EarthDate, "What If There Were No Moon?"; Physics World, "What's in a moon".</li>
-    <li>A grapefruit-sized black hole holds about seven Earths. Worked out from <a href="https://imagine.gsfc.nasa.gov/science/objects/black_holes1.html">NASA Imagine the Universe</a>: Earth squeezed to a 9 mm radius would be a black hole.</li>
-    <li>Not even light escapes a black hole. <a href="https://www.nasa.gov/universe/what-are-black-holes">NASA, What Are Black Holes?</a></li>
-  </ul></details>
-
-  <details><summary>Yup &amp; Nope</summary><ul>
-    <li>A hippo can reach about 30 km/h on land over short distances. <a href="https://www.igb-berlin.de/en/node/11064">Leibniz Institute IGB Berlin</a>. Some zoos quote lower figures.</li>
-    <li>Bacteria can transfer to dropped food in under a second; moisture and surface matter. Miranda &amp; Schaffner (2016), Applied and Environmental Microbiology.</li>
-    <li>Mars: gravity 38% of Earth's, air about 95% carbon dioxide, average temperature near minus 60 °C. <a href="https://www.jpl.nasa.gov/news/press_kits/insight/launch/facts/mars-at-a-glance">NASA/JPL, Mars at a glance</a>; <a href="https://www.esa.int/Science_Exploration/Space_Science/Mars_Express/Facts_about_Mars">ESA, Facts about Mars</a>.</li>
-  </ul></details>
-
-  <details><summary>Tess</summary><ul>
-    <li>Tess's tricks are standard four-dimensional geometry. The flat-world explanation comes from Edwin Abbott's "Flatland" (1884).</li>
-  </ul></details>
-
-  <details><summary>Murmur</summary><ul>
-    <li>About 8.3 billion people; roughly 59% live in Asia and 19% in Africa; about four births and two deaths every second. United Nations, World Population Prospects 2024.</li>
-    <li>About 117 billion people have ever been born. Population Reference Bureau, "How Many People Have Ever Lived on Earth?"</li>
-  </ul></details>
-</section>
-
-<div class="brands" id="brands">
-  <h2>We make these for brands</h2>
-  <p>Vidatu is produced by SellnShip Solutions in Chandigarh. Every character here is built and animated in code, so a new 30-second film takes days, not months.</p>
-  <p>We write the script, check the facts, animate, voice and caption it, and hand you a file that is ready to post.</p>
-  <a class="btn" href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">Email us about a video</a>
-</div>
-</main>
-
-<footer>
-  <span>© 2026 Vidatu, a SellnShip Solutions production</span>
-  <span>Animated entirely in code. Voices are AI-generated.</span>
-</footer>
-
-</div>
-</body>
-</html>
+<!DOCTYPE html><html lang="en"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Vidatu: an alien is auditing humans</title><meta name="description" content="Inspector Oob files 30-second field reports on human habits. His colleagues explain the rest of the universe. Every fact has a source."><link rel="canonical" href="https://vidatu.com/"><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon="{&#34;token&#34;:&#34;2e719a0bfca94259b52f0fb168bd8312&#34;}"></script><link rel="icon" href="/img/avatar.jpg"><meta property="og:title" content="Vidatu: an alien is auditing humans"><meta property="og:description" content="Inspector Oob files 30-second field reports on human habits. His colleagues explain the rest of the universe. Every fact has a source."><meta property="og:image" content="https://vidatu.com/img/avatar.jpg"><meta property="og:url" content="https://vidatu.com/"><meta property="og:site_name" content="Vidatu"><meta name="twitter:card" content="summary_large_image"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Vidatu","url":"https://vidatu.com/","logo":"https://vidatu.com/img/avatar.jpg","sameAs":["https://www.youtube.com/@vidatutv"]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Vidatu","url":"https://vidatu.com/"}</script><link rel="stylesheet" href="/_astro/_slug_.CMbLDkRU.css"></head> <body> <div class="percy" aria-hidden="true"><i></i><b><u></u></b><em>0%</em></div> <script>
+(() => { const el = document.querySelector('.percy'), em = el.querySelector('em'); let tick = false;
+  const up = () => { tick = false; const max = document.documentElement.scrollHeight - innerHeight, p = max > 0 ? scrollY / max : 0, shown = p < .9 ? p / .9 * .99 : (p < .995 ? .99 : 1);
+    el.style.setProperty('--sp', (shown * 100).toFixed(2) + '%'); em.textContent = Math.floor(shown * 100) + '%'; el.classList.toggle('stall', shown === .99); el.classList.toggle('on', scrollY > 60); };
+  addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(up); } }, { passive: true }); addEventListener('resize', up); up(); })();
+</script> <a class="skip" href="#main">Skip to the content</a> <div class="wrap"><header class="top"> <a class="mark" href="/"><img src="/img/avatar.jpg" alt="" width="30" height="30">Vidatu</a> <nav aria-label="Main"><a href="/#shows">Shows</a><a href="/lab/">Lab</a><a href="/sources/">Sources</a><a href="/about/">About</a><a href="/brands/">For brands</a></nav> </header></div> <main id="main"> <div id="melt"></div> <div class="stage" data-bg="#1A1340"><div class="wrap"> <div class="hero"> <div> <ul class="kicker"><li><span>Filed by</span>Inspector Oob</li><li><span>Subject</span>humans</li></ul> <h1>An alien is auditing <em>humans.</em></h1> <p class="lede">Inspector Oob files one 30-second report on one human habit. Clapping. Queues. Your cat. Each ends with a stamped verdict, and every fact has a source.</p> <div class="actions"><a class="btn" href="/oob/" style="view-transition-name:t-oob">Read the reports</a><a class="btn ghost" href="https://www.youtube.com/@vidatutv">Watch on YouTube</a></div> </div> <figure class="specimen" data-live="/js/oob-live.js" data-base="/oob/"> <video autoplay muted loop playsinline poster="/img/oob-hero.jpg" aria-label="Inspector Oob, a violet alien with a visor for a face, projecting a hologram of a cat labelled: specimen cat, status in charge"><source src="/img/oob-hero.mp4" type="video/mp4"></video> <canvas id="oob-live" hidden aria-label="Inspector Oob, live. He follows your pointer. Tap him and he stamps a verdict on the specimen in his hologram."></canvas> <span class="stamp review" id="oob-stamp" hidden>Under review</span> <p class="hint" id="oob-hint" hidden>He is watching you. Tap him to make him rule. <a id="oob-link" href="/oob/your-cat/">Read Report 002</a></p> </figure> </div> </div></div> <div class="band" data-bg="#120E2A"><div class="wrap"> <h2>Latest reports</h2> <ol class="holos"><li><a class="holo" href="/oob/clapping/"><span class="no">REPORT 001</span><h3>Why does a whole audience stop clapping at once?</h3><p>Humans strike their own hands in groups. Nobody decides when it ends. They all simply stop.</p><span class="stamp absurd">Absurd</span></a></li><li><a class="holo" href="/oob/your-cat/"><span class="no">REPORT 002</span><h3>Do cats know their names?</h3><p>A small predator kept indoors. It knows its name and chooses not to answer. In return, it vibrates.</p><span class="stamp approved">Approved</span></a></li><li><a class="holo" href="/oob/the-queue/"><span class="no">REPORT 003</span><h3>Why do people queue when nobody makes them?</h3><p>No fence, no guard, no law. Skip ahead and the others say nothing. They only stare.</p><span class="stamp review">Under review</span></a></li></ol> </div></div> <div id="shows"></div> <section class="world" data-bg="#2447F2" style="--bg:#2447F2;--fg:#FFFFFF;--dir:1;background:#2447F2;color:#FFFFFF"><div class="wrap grid"> <a class="pic" href="/percy/" aria-label="Meet Percy" style="view-transition-name:p-percy"><video muted loop playsinline preload="none" poster="/img/percy.jpg" data-loop><source src="/img/percy.mp4" type="video/mp4"></video></a> <div class="txt"><p class="fmt">Lives</p><a class="name" href="/percy/"><h2 style="view-transition-name:t-percy">Percy</h2></a><p class="line">Born at 0%, gone at 100%.</p><a class="btn" style="background:#FFFFFF;color:#2447F2" href="/percy/">Meet Percy</a></div> </div></section><section class="world" data-bg="#141740" style="--bg:#141740;--fg:#FBF7EA;--dir:-1;background:#141740;color:#FBF7EA"><div class="wrap grid"> <a class="pic" href="/old-h/" aria-label="Meet Old H" style="view-transition-name:p-old-h"><video muted loop playsinline preload="none" poster="/img/oldh.jpg" data-loop><source src="/img/oldh.mp4" type="video/mp4"></video></a> <div class="txt"><p class="fmt">Tales</p><a class="name" href="/old-h/"><h2 style="view-transition-name:t-old-h">Old H</h2></a><p class="line">He has been in a star, an ocean and a dinosaur.</p><a class="btn" style="background:#FBF7EA;color:#141740" href="/old-h/">Meet Old H</a></div> </div></section><section class="world" data-bg="#CDBBFF" style="--bg:#CDBBFF;--fg:#17122B;--dir:1;background:#CDBBFF;color:#17122B"><div class="wrap grid"> <a class="pic" href="/gulp/" aria-label="Meet Gulp" style="view-transition-name:p-gulp"><video muted loop playsinline preload="none" poster="/img/gulp.jpg" data-loop><source src="/img/gulp.mp4" type="video/mp4"></video></a> <div class="txt"><p class="fmt">Snacks</p><a class="name" href="/gulp/"><h2 style="view-transition-name:t-gulp">Gulp</h2></a><p class="line">Grapefruit-sized, polite, permanently hungry.</p><a class="btn" style="background:#17122B;color:#CDBBFF" href="/gulp/">Meet Gulp</a></div> </div></section><section class="world" data-bg="#FFD9CC" style="--bg:#FFD9CC;--fg:#17122B;--dir:-1;background:#FFD9CC;color:#17122B"><div class="wrap grid"> <a class="pic" href="/yup-and-nope/" aria-label="Meet Yup &#38; Nope" style="view-transition-name:p-yup-and-nope"><video muted loop playsinline preload="none" poster="/img/duo.jpg" data-loop><source src="/img/duo.mp4" type="video/mp4"></video></a> <div class="txt"><p class="fmt">Rounds</p><a class="name" href="/yup-and-nope/"><h2 style="view-transition-name:t-yup-and-nope">Yup &amp; Nope</h2></a><p class="line">The optimist half and the sceptic half argue one question with real facts.</p><a class="btn" style="background:#17122B;color:#FFD9CC" href="/yup-and-nope/">Meet Yup &amp; Nope</a></div> </div></section><section class="world" data-bg="#0E7C86" style="--bg:#0E7C86;--fg:#FFFFFF;--dir:1;background:#0E7C86;color:#FFFFFF"><div class="wrap grid"> <a class="pic" href="/tess/" aria-label="Meet Tess" style="view-transition-name:p-tess"><video muted loop playsinline preload="none" poster="/img/tess.jpg" data-loop><source src="/img/tess.mp4" type="video/mp4"></video></a> <div class="txt"><p class="fmt">Tricks</p><a class="name" href="/tess/"><h2 style="view-transition-name:t-tess">Tess</h2></a><p class="line">What we see is only her shadow.</p><a class="btn" style="background:#FFFFFF;color:#0E7C86" href="/tess/">Meet Tess</a></div> </div></section><section class="world" data-bg="#2A1B6B" style="--bg:#2A1B6B;--fg:#FFFFFF;--dir:-1;background:#2A1B6B;color:#FFFFFF"><div class="wrap grid"> <a class="pic" href="/murmur/" aria-label="Meet Murmur" style="view-transition-name:p-murmur"><video muted loop playsinline preload="none" poster="/img/murmur.jpg" data-loop><source src="/img/murmur.mp4" type="video/mp4"></video></a> <div class="txt"><p class="fmt">Chapters</p><a class="name" href="/murmur/"><h2 style="view-transition-name:t-murmur">Murmur</h2></a><p class="line">8,300 dots, one for every million people alive, coloured by region.</p><a class="btn" style="background:#FFFFFF;color:#2A1B6B" href="/murmur/">Meet Murmur</a></div> </div></section><div class="lab" id="lab" data-bg="#070B20"><div class="wrap grid"> <div> <h2>The Lab. No words, just the rule.</h2> <p class="note">This is not a video. Fifteen pendulums are swinging in your browser right now, each a little faster than the last. They drift into waves, then a mess, then land back in step every 24 seconds.</p> <p class="note">Every Vidatu film is made in code, so here you can run the real thing. Pull them sideways and let go. Turn the sound on: each pendulum plays its own note, as in the film.</p> <p><a class="btn" href="/lab/">Open the Lab</a></p> </div> <div> <canvas id="wave" aria-label="Live pendulum wave: coloured dots swinging at slightly different speeds"></canvas> <div class="controls"><button class="btn" id="wave-restart" type="button">Start again</button><button class="btn ghost" id="wave-sound" type="button" aria-pressed="false">Sound off</button><label>Pendulums <input id="wave-n" type="range" min="5" max="30" value="15"> <span id="wave-nv">15</span></label><span id="wave-t"></span></div> </div> </div></div> <div class="band light" id="sources"><div class="wrap"> <h2>Every fact has a source</h2> <p class="note">If a film states a number, its page names where the number came from, with a link and the date it was checked. If we get one wrong, we fix the film and say so.</p> <ul class="chips"><li><a href="/topics/space/">Space</a></li><li><a href="/topics/animals/">Animals</a></li><li><a href="/topics/maths/">Maths</a></li><li><a href="/topics/physics/">Physics</a></li><li><a href="/topics/humans/">Human life</a></li><li><a href="/sources/">All sources</a></li></ul> </div></div> <script src="/js/pendulum.js" defer></script> <script>
+(() => { const calm = matchMedia('(prefers-reduced-motion: reduce)').matches, root = document.documentElement;
+  // looping clips play only while on screen
+  if (!calm && 'IntersectionObserver' in window) { const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause()), { threshold: .2 }); document.querySelectorAll('video[data-loop]').forEach(v => io.observe(v)); }
+  // background colour melts from one band into the next; characters swing in as their band arrives
+  const bands = [...document.querySelectorAll('[data-bg]')], melt = document.getElementById('melt'), fx = [...document.querySelectorAll('.world, .holo')];
+  const rgb = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16)), mix = (a, b, k) => 'rgb(' + a.map((v, i) => Math.round(v + (b[i] - v) * k)).join(',') + ')';
+  const cols = bands.map(b => rgb(b.dataset.bg)); let tick = false; root.classList.add('melt'); if (!calm) root.classList.add('fx');
+  const up = () => { tick = false; const mid = innerHeight * .5; let k = 0;
+    for (let i = 0; i < bands.length; i++) if (bands[i].getBoundingClientRect().top <= mid) k = i;
+    const nx = bands[k + 1], zone = innerHeight * .3; let col = mix(cols[k], cols[k], 0);
+    if (nx) { const dist = nx.getBoundingClientRect().top - mid; if (dist < zone) col = mix(cols[k], cols[k + 1], 1 - dist / zone); }
+    melt.style.background = col;
+    if (!calm) fx.forEach(el => { const r = el.getBoundingClientRect(), p = Math.max(0, Math.min(1, (innerHeight - r.top) / (innerHeight * .75))); el.style.setProperty('--p', (1 - Math.pow(1 - p, 3)).toFixed(3)); }); };
+  addEventListener('scroll', () => { if (!tick) { tick = true; requestAnimationFrame(up); } }, { passive: true }); addEventListener('resize', up); up();
+  // live Oob: the film's own 3D character, running here
+  const fig = document.querySelector('[data-live]'), cv = document.getElementById('oob-live');
+  if (fig && cv && !calm) import(fig.dataset.live).then(m => { const stamp = document.getElementById('oob-stamp'), link = document.getElementById('oob-link');
+    cv.hidden = false; m.mount(cv, { verdict: s => { stamp.textContent = s.verdict; stamp.className = 'stamp ' + s.cls; stamp.hidden = false; stamp.classList.remove('hit'); void stamp.offsetWidth; stamp.classList.add('hit'); },
+      specimen: s => { stamp.hidden = true; link.href = fig.dataset.base + s.slug + '/'; link.textContent = 'Read Report ' + s.no; } });
+    fig.querySelector('video').remove(); document.getElementById('oob-hint').hidden = false; document.fonts && document.fonts.load('700 30px "JetBrains Mono"'); }).catch(() => { document.getElementById('oob-stamp').hidden = false; });
+  else if (fig) document.getElementById('oob-stamp').hidden = false;
+})();
+</script> </main> <footer><div class="wrap cols"> <div><b>Vidatu</b>Hidden rules, made visible. One true, surprising thing in 30 seconds, with its sources.<br><br>Animated entirely in code. Voices are AI-generated.</div> <div><b>Explore</b><ul><li><a href="/oob/">Inspector Oob's reports</a></li><li><a href="/lab/">The Lab</a></li><li><a href="/topics/space/">Space</a> · <a href="/topics/animals/">Animals</a> · <a href="/topics/maths/">Maths</a> · <a href="/topics/physics/">Physics</a> · <a href="/topics/humans/">Human life</a></li><li><a href="/sources/">Sources and corrections</a></li><li><a href="https://www.youtube.com/@vidatutv">YouTube</a></li></ul></div> <div><b>For brands</b>We make films like these for products and launches. <a href="/brands/">See how</a>, or write to <a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a>.<br><br>A SellnShip Solutions production, Chandigarh.</div> </div></footer> </body></html>

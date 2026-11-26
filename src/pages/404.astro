@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import { u, shows } from '../data/site.js';
+---
+<Base title="Page not found | Vidatu" description="This page does not exist. Inspector Oob has filed a report. Pick a show or go back to the start." path="/404/" noindex>
+<div class="wrap plain" style="padding-top:30px">
+  <p class="kicker" style="display:block">Field report 404</p>
+  <h1>Specimen not found.</h1>
+  <p class="lede">Oob looked. There is nothing at this address. Verdict: <span class="stamp absurd" style="font-size:22px;margin-left:8px">Absurd</span></p>
+  <div class="actions" style="margin:28px 0 36px"><a class="btn" href={u('/')}>Go to the start</a><a class="btn ghost" href={u('/sources/')}>See the sources</a></div>
+  <ul class="chips" style="margin-bottom:90px">{shows.map(s => <li><a href={u('/' + s.id + '/')}>{s.title}</a></li>)}</ul>
+</div>
+</Base>

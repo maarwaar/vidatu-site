@@ -2,7 +2,7 @@
 import { u, beacon } from '../data/site.js';
 const { title, description, theme = null, path = '/', ld = [], image = '/img/avatar.jpg', noindex = false } = Astro.props;
 const canon = 'https://vidatu.com' + path;
-const org = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Vidatu', url: 'https://vidatu.com/', logo: 'https://vidatu.com/img/avatar.jpg', sameAs: ['https://www.youtube.com/@vidatutv'], parentOrganization: { '@type': 'Organization', name: 'SellnShip Solutions Pvt. Ltd.', address: { '@type': 'PostalAddress', addressLocality: 'Chandigarh', addressCountry: 'IN' } } };
+const org = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Vidatu', url: 'https://vidatu.com/', logo: 'https://vidatu.com/img/avatar.jpg', sameAs: ['https://www.youtube.com/@vidatutv'], parentOrganization: { '@type': 'Organization', name: 'SellnShip Solutions Pvt. Ltd.', url: 'https://sellnship.in/', address: { '@type': 'PostalAddress', addressLocality: 'Chandigarh', addressCountry: 'IN' } } };
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -139,6 +139,6 @@ canvas:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{
 <footer><div class="wrap cols">
   <div><b>Vidatu</b>Hidden rules, made visible. One true, surprising thing in 30 seconds, with its sources.<br><br>Animated entirely in code. Voices are AI-generated.</div>
   <div><b>Explore</b><ul><li><a href={u('/oob/')}>Inspector Oob's reports</a></li><li><a href={u('/lab/')}>The Lab</a></li><li><a href={u('/topics/space/')}>Space</a> · <a href={u('/topics/animals/')}>Animals</a> · <a href={u('/topics/maths/')}>Maths</a> · <a href={u('/topics/physics/')}>Physics</a> · <a href={u('/topics/humans/')}>Human life</a></li><li><a href={u('/sources/')}>Sources and corrections</a></li><li><a href="https://www.youtube.com/@vidatutv">YouTube</a></li></ul></div>
-  <div><b>For brands</b>We make films like these for products and launches. <a href={u('/brands/')}>See how</a>, or write to <a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a>.<br><br>Created and produced by <a href={u('/about/#credits')}>SellnShip Solutions Pvt. Ltd.</a>, Chandigarh, India.</div>
+  <div><b>For brands</b>We make films like these for products and launches. <a href={u('/brands/')}>See how</a>, or write to <a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a>.<br><br>Created and produced by <a href="https://sellnship.in/" rel="noopener">SellnShip Solutions Pvt. Ltd.</a>, Chandigarh, India. <a href={u('/about/#credits')}>Credits</a></div>
 </div></footer>
 </body></html>

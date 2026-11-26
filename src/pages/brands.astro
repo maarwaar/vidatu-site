@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import { u, shows } from '../data/site.js';
-const ld = [{ '@context': 'https://schema.org', '@type': 'Service', name: 'Character films for brands', provider: { '@type': 'Organization', name: 'SellnShip Solutions Pvt. Ltd.' }, areaServed: 'Worldwide', url: 'https://vidatu.com/brands/' }];
+const ld = [{ '@context': 'https://schema.org', '@type': 'Service', name: 'Character films for brands', provider: { '@type': 'Organization', name: 'SellnShip Solutions Pvt. Ltd.', url: 'https://sellnship.in/' }, areaServed: 'Worldwide', url: 'https://vidatu.com/brands/' }];
 ---
 <Base title="Character films for brands | Vidatu" description="The team behind Vidatu makes short, code-built character films for products, launches and explainers." path="/brands/" ld={ld}>
 <div class="wrap plain" style="padding-top:30px">
@@ -22,7 +22,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'Service', name: 'Chara
     <h2>See the range</h2>
     <ul class="chips">{shows.map(s => <li><a href={u('/' + s.id + '/')}>{s.short === 'Lab' ? 'The Lab' : s.name}</a></li>)}</ul>
     <h2>Who we are</h2>
-    <p>SellnShip Solutions Pvt. Ltd., Chandigarh, India, the company that creates and produces Vidatu. Write to <a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a>.</p>
+    <p><a href="https://sellnship.in/" rel="noopener">SellnShip Solutions Pvt. Ltd.</a>, Chandigarh, India, the company that creates and produces Vidatu. Write to <a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a>.</p>
   </div>
   <div style="height:60px"></div>
 </div>

@@ -3,7 +3,7 @@ import Base from '../layouts/Base.astro';
 import { u } from '../data/site.js';
 const ld = [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'About Vidatu', url: 'https://vidatu.com/about/' }];
 ---
-<Base title="About Vidatu: how the films are made | Vidatu" description="Vidatu makes 30-second films about one true, surprising thing. Every character is built and animated in code, and every fact is sourced." path="/about/" ld={ld}>
+<Base title="About Vidatu: how the films are made | Vidatu" description="Vidatu makes 30-second films about one true, surprising thing. Every character is built and animated in code, and every fact is sourced. Created and produced by SellnShip Solutions." path="/about/" ld={ld}>
 <div class="wrap plain" style="padding-top:30px">
   <p class="crumbs"><a href={u('/')}>Vidatu</a> / About</p>
   <h1>Hidden rules, made visible.</h1>
@@ -14,9 +14,9 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'AboutPage', name: 'Abo
     <h2>The voices</h2>
     <p>The character voices are AI-generated and are labelled that way on every film. The Lab films have no voice at all: captions, and sound that is also made in code.</p>
     <h2>The facts</h2>
-    <p>Every number in a film has a named source, listed on the film's page and on the <a href={u('/sources/')}>sources page</a>. Scripts are written and checked by a person working with Claude, an AI model made by Anthropic, and nothing is released until someone has watched and listened to it.</p>
-    <h2>Who makes it</h2>
-    <p>Vidatu is produced by SellnShip Solutions in Chandigarh, India. The same team makes films like these <a href={u('/brands/')}>for brands</a>.</p>
+    <p>Every number in a film has a named source, listed on the film's page and on the <a href={u('/sources/')}>sources page</a>. Scripts are researched and written by the SellnShip team with the help of AI tools, every claim is checked against its source, and nothing is released until a person has watched and listened to it.</p>
+    <h2 id="credits">Credits</h2>
+    <p><b>Vidatu is created and produced by SellnShip Solutions Pvt. Ltd., Chandigarh, India.</b> The idea, the seven characters, the scripts, the fact-checking and the code that draws every frame are SellnShip's work. The same team makes films like these <a href={u('/brands/')}>for brands</a>.</p>
     <h2>Say hello</h2>
     <p><a href="mailto:hello@vidatu.com">hello@vidatu.com</a> · <a href="https://www.youtube.com/@vidatutv">YouTube</a></p>
   </div>

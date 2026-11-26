@@ -2,14 +2,14 @@
 import { u, beacon } from '../data/site.js';
 const { title, description, theme = null, path = '/', ld = [], image = '/img/avatar.jpg', noindex = false } = Astro.props;
 const canon = 'https://vidatu.com' + path;
-const org = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Vidatu', url: 'https://vidatu.com/', logo: 'https://vidatu.com/img/avatar.jpg', sameAs: ['https://www.youtube.com/@vidatutv'] };
+const org = { '@context': 'https://schema.org', '@type': 'Organization', name: 'Vidatu', url: 'https://vidatu.com/', logo: 'https://vidatu.com/img/avatar.jpg', sameAs: ['https://www.youtube.com/@vidatutv'], parentOrganization: { '@type': 'Organization', name: 'SellnShip Solutions Pvt. Ltd.', address: { '@type': 'PostalAddress', addressLocality: 'Chandigarh', addressCountry: 'IN' } } };
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{title}</title><meta name="description" content={description}>
-<link rel="canonical" href={canon}>{(import.meta.env.BASE_URL !== "/" || noindex) && <meta name="robots" content="noindex">}{beacon && <script is:inline type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: beacon })}></script>}<link rel="icon" href={u('/img/avatar.jpg')}>
+<meta name="author" content="SellnShip Solutions Pvt. Ltd."><link rel="canonical" href={canon}>{(import.meta.env.BASE_URL !== "/" || noindex) && <meta name="robots" content="noindex">}{beacon && <script is:inline type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: beacon })}></script>}<link rel="icon" href={u('/img/avatar.jpg')}>
 <meta property="og:title" content={title}><meta property="og:description" content={description}><meta property="og:image" content={'https://vidatu.com' + image}><meta property="og:url" content={canon}><meta property="og:site_name" content="Vidatu"><meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
@@ -139,6 +139,6 @@ canvas:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{
 <footer><div class="wrap cols">
   <div><b>Vidatu</b>Hidden rules, made visible. One true, surprising thing in 30 seconds, with its sources.<br><br>Animated entirely in code. Voices are AI-generated.</div>
   <div><b>Explore</b><ul><li><a href={u('/oob/')}>Inspector Oob's reports</a></li><li><a href={u('/lab/')}>The Lab</a></li><li><a href={u('/topics/space/')}>Space</a> · <a href={u('/topics/animals/')}>Animals</a> · <a href={u('/topics/maths/')}>Maths</a> · <a href={u('/topics/physics/')}>Physics</a> · <a href={u('/topics/humans/')}>Human life</a></li><li><a href={u('/sources/')}>Sources and corrections</a></li><li><a href="https://www.youtube.com/@vidatutv">YouTube</a></li></ul></div>
-  <div><b>For brands</b>We make films like these for products and launches. <a href={u('/brands/')}>See how</a>, or write to <a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a>.<br><br>A SellnShip Solutions production, Chandigarh.</div>
+  <div><b>For brands</b>We make films like these for products and launches. <a href={u('/brands/')}>See how</a>, or write to <a href="mailto:hello@vidatu.com?subject=A%20video%20for%20our%20brand">hello@vidatu.com</a>.<br><br>Created and produced by <a href={u('/about/#credits')}>SellnShip Solutions Pvt. Ltd.</a>, Chandigarh, India.</div>
 </div></footer>
 </body></html>

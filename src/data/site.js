@@ -9,6 +9,12 @@ export const videos = content.videos;
 export const showOf = id => shows.find(x => x.id === id);
 export const TOPICS = { space: ['Space', 'Stars, black holes, the Moon and the first light in the universe.'], animals: ['Animals', 'Cats that ignore you and hippos you cannot outrun.'], maths: ['Maths', 'Bell curves, higher dimensions and shapes that should not be possible.'], physics: ['Physics', 'Time, light, chaos and why pendulums fall back into step.'], humans: ['Human life', 'Clapping, queues, loading bars and the eight billion of us.'] };
 export const CHECKED = '26 Nov 2026';
+// YouTube: video id and the day it goes public (21:30 IST). Source: the schedule in "00 Vidatu - START HERE", section 6.
+const YTS = { 'oob-1': ['5ajdArNd0dg', '2026-11-27'], 'tess-2': ['fEaCtveKdlk', '2026-11-28'], 'percy-1': ['9gFafVvjNqk', '2026-11-29'], 'oob-2': ['Cw6uO8D1nQE', '2026-11-30'], 'gulp-1': ['gAmowDgkN6A', '2026-12-01'],
+  'old-h-3': ['g0D9w1HwGfc', '2026-12-02'], 'oob-3': ['50TFVscOujg', '2026-12-03'], 'percy-2': ['Q7c2T0TGgGs', '2026-12-04'], 'gulp-2': ['1lAmvGpa4h8', '2026-12-05'], 'tess-1': ['sVOj6NG15y0', '2026-12-06'],
+  'old-h-1': ['SnmEJCizEaU', '2026-12-07'], 'percy-3': ['L7s1_gKGuks', '2026-12-08'], 'gulp-3': ['NDiLNtqh0HA', '2026-12-09'], 'tess-3': ['Ly7vd_XRYbc', '2026-12-10'], 'old-h-2': ['B7JALA7G7ms', '2026-12-11'] };
+export const yt = v => { const y = YTS[v.show + '-' + v.n]; if (!y) return null; const d = new Date(y[1] + 'T00:00:00Z'); return { id: y[0], at: y[1] + 'T21:30:00+05:30', day: d.getUTCDate() + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getUTCMonth()] }; };
+
 export const reports = [
   { slug: 'clapping', no: '001', subject: 'Clapping', verdict: 'Absurd', vc: 'absurd', img: 'oob-1.jpg',
     h1: 'Why does a whole audience stop clapping at once?',

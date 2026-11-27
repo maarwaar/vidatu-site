@@ -1,7 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { u, shows, videos, reports, showOf, TOPICS, CHECKED, host } from '../../data/site.js';
+import { u, shows, videos, reports, showOf, TOPICS, CHECKED, host, yt } from '../../data/site.js';
 export function getStaticPaths() { return videos.map(v => ({ params: { show: v.show, slug: v.slug }, props: { v } })); }
+const film = yt(Astro.props.v);
 const { v } = Astro.props, s = showOf(v.show), r = reports.find(x => x.slug === v.slug && v.show === 'oob'), list = videos.filter(x => x.show === v.show), i = list.indexOf(v), prev = list[i - 1], next = list[i + 1];
 const h1 = r?.h1 || v.title, answer = r?.answer || v.answer, url = `https://vidatu.com/${s.id}/${v.slug}/`, ep = `${s.one} ${String(v.n).padStart(3, '0')}`;
 const sources = r ? r.sources.map(x => ({ text: x[0], link: x[1] })) : v.notes;
@@ -33,12 +34,18 @@ const ld = [
        : v.show === 'lab' && v.n === 2 ? <><canvas id="board" data-live={u('/js/oob-live.js')} aria-label="Four hundred balls falling through twelve rows of pegs. Tap to drop them again."></canvas><p style="margin-top:12px;font-size:15px;opacity:.8;text-align:center">Running live. Tap to drop them again.</p></>
        : v.show === 'lab' && v.n === 3 ? <><canvas id="chaos" data-live={u('/js/oob-live.js')} aria-label="Forty double pendulums. Tap to release them again."></canvas><p style="margin-top:12px;font-size:15px;opacity:.8;text-align:center">Running live. Tap to release them again.</p></>
        : <figure class="specimen"><img src={u('/img/' + v.img)} alt={`${s.short}: ${h1}`} width="640" height="480" loading="eager">{r && <span class={'stamp ' + r.vc}>{r.verdict}</span>}</figure>}
-      <p style="margin-top:36px">The 30-second film is coming to <a href="https://www.youtube.com/@vidatutv">YouTube</a>.</p>
+      {film ? <div class="film" data-id={film.id} data-at={film.at} style="margin-top:28px"><p class="soon">The 30-second film goes public on {film.day} on <a href="https://www.youtube.com/@vidatutv">YouTube</a>.</p><p class="live actions" hidden><button class="btn" type="button">Play the film here</button><a class="btn ghost" href={`https://www.youtube.com/shorts/${film.id}`} rel="noopener">Watch on YouTube</a></p></div>
+        : <p style="margin-top:36px">The 30-second film is coming to <a href="https://www.youtube.com/@vidatutv">YouTube</a>.</p>}
     </aside>
   </div>
   <nav class="pager" aria-label={'More from ' + s.short}>{prev ? <a href={u(`/${s.id}/${prev.slug}/`)}>← {prev.title}</a> : <a href={u('/' + s.id + '/')}>← All from {s.short === 'Lab' ? 'the Lab' : s.short}</a>}{next ? <a href={u(`/${s.id}/${next.slug}/`)}>{next.title} →</a> : <a href={u('/' + s.id + '/')}>All from {s.short === 'Lab' ? 'the Lab' : s.short} →</a>}</nav>
   <div style="height:80px"></div>
 </div>
+{film && <script is:inline>
+(() => { const f = document.querySelector('.film'); if (!f || Date.now() < Date.parse(f.dataset.at)) return; f.querySelector('.soon').hidden = true; const live = f.querySelector('.live'); live.hidden = false;
+  live.querySelector('button').addEventListener('click', () => { const fr = document.createElement('iframe'); fr.src = 'https://www.youtube-nocookie.com/embed/' + f.dataset.id + '?autoplay=1&rel=0'; fr.allow = 'autoplay; encrypted-media; picture-in-picture'; fr.allowFullscreen = true; fr.title = 'The 30-second film';
+    fr.style.cssText = 'width:100%;aspect-ratio:9/16;border:0;border-radius:18px;display:block'; live.replaceWith(fr); }); })();
+</script>}
 {v.show === 'lab' && v.n === 1 && <script is:inline src={u('/js/pendulum.js')} defer></script>}
 {v.show === 'lab' && v.n === 2 && <script is:inline>
 (() => { const c = document.getElementById('board'); import(c.dataset.live).then(m => m.mountBoard(c)).catch(() => {}); })();

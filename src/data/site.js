@@ -9,10 +9,11 @@ export const videos = content.videos;
 export const showOf = id => shows.find(x => x.id === id);
 export const TOPICS = { space: ['Space', 'Stars, black holes, the Moon and the first light in the universe.'], animals: ['Animals', 'Cats that ignore you and hippos you cannot outrun.'], maths: ['Maths', 'Bell curves, higher dimensions and shapes that should not be possible.'], physics: ['Physics', 'Time, light, chaos and why pendulums fall back into step.'], humans: ['Human life', 'Clapping, queues, loading bars and the eight billion of us.'] };
 export const CHECKED = '26 Nov 2026';
-// YouTube: video id and the day it goes public (21:30 IST). Source: the schedule in "00 Vidatu - START HERE", section 6.
-const YTS = { 'oob-1': ['5ajdArNd0dg', '2026-11-27'], 'tess-2': ['fEaCtveKdlk', '2026-11-28'], 'percy-1': ['9gFafVvjNqk', '2026-11-29'], 'oob-2': ['Cw6uO8D1nQE', '2026-11-30'], 'gulp-1': ['gAmowDgkN6A', '2026-12-01'],
-  'old-h-3': ['g0D9w1HwGfc', '2026-12-02'], 'oob-3': ['50TFVscOujg', '2026-12-03'], 'percy-2': ['Q7c2T0TGgGs', '2026-12-04'], 'gulp-2': ['1lAmvGpa4h8', '2026-12-05'], 'tess-1': ['sVOj6NG15y0', '2026-12-06'],
-  'old-h-1': ['SnmEJCizEaU', '2026-12-07'], 'percy-3': ['L7s1_gKGuks', '2026-12-08'], 'gulp-3': ['NDiLNtqh0HA', '2026-12-09'], 'tess-3': ['Ly7vd_XRYbc', '2026-12-10'], 'old-h-2': ['B7JALA7G7ms', '2026-12-11'] };
+// YouTube: video id and the day it goes public (21:30 IST). Format: 'oob-1': ['<video id>', '2026-12-10'].
+// Empty since 27 Nov 2026: the channel launch is paused while every video goes through the topic gate
+// ("00 Vidatu - START HERE", section 3b). The 15 uploads stay in YouTube Studio as private videos. Their ids, for the relaunch:
+// oob-1 5ajdArNd0dg, tess-2 fEaCtveKdlk, percy-1 9gFafVvjNqk, oob-2 Cw6uO8D1nQE, gulp-1 gAmowDgkN6A, old-h-3 g0D9w1HwGfc, oob-3 50TFVscOujg, percy-2 Q7c2T0TGgGs, gulp-2 1lAmvGpa4h8, tess-1 sVOj6NG15y0, old-h-1 SnmEJCizEaU, percy-3 L7s1_gKGuks, gulp-3 NDiLNtqh0HA, tess-3 Ly7vd_XRYbc, old-h-2 B7JALA7G7ms
+const YTS = {};
 export const yt = v => { const y = YTS[v.show + '-' + v.n]; if (!y) return null; const d = new Date(y[1] + 'T00:00:00Z'); return { id: y[0], at: y[1] + 'T21:30:00+05:30', day: d.getUTCDate() + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getUTCMonth()] }; };
 
 export const reports = [

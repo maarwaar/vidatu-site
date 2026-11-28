@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { u, shows, videos, reports } from '../../data/site.js';
+import { u, shows, videos, reports, RESTING } from '../../data/site.js';
 export function getStaticPaths() { return shows.map(s => ({ params: { show: s.id }, props: { s } })); }
 const { s } = Astro.props, eps = videos.filter(v => v.show === s.id), lab = s.id === 'lab', others = shows.filter(x => x.id !== s.id);
 const rich = Object.fromEntries(reports.map(r => [r.slug, r]));
@@ -15,6 +15,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemL
       <h1 style={`view-transition-name:t-${s.id}`}>{s.short === 'Oob' ? 'Oob' : s.short === 'Lab' ? 'The Lab' : s.short}</h1>
       <p class="tag">{s.name === s.short || lab ? s.tag : s.name + ', ' + s.tag.charAt(0).toLowerCase() + s.tag.slice(1)}.</p>
       <p class="lede">{s.idea}</p>
+      {RESTING.has(s.id) && <p class="note"><b>Resting.</b> {s.short} has no new films for now: we only make one when its topic passes our research check. The films below stay here with their sources.</p>}
     </div>
     <div class="livewrap" style={`view-transition-name:p-${s.id}`}>
       {lab ? <>
@@ -32,7 +33,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemL
   <div class="rules"><div><b>Always</b><span>{s.always.charAt(0).toUpperCase() + s.always.slice(1)}.</span></div><div><b>Never</b><span>{s.never.charAt(0).toUpperCase() + s.never.slice(1)}.</span></div></div>
   <h2>{lab ? 'Experiments' : 'Episodes'}</h2>
   <ol class="eps">{eps.map(v => <li><a class="ep" href={u('/' + s.id + '/' + v.slug + '/')}><img src={u('/img/' + v.img)} alt="" loading="lazy"><div><small>{s.one} {String(v.n).padStart(3, '0')}</small><h3>{rich[v.slug]?.h1 || v.title}</h3><p>{(rich[v.slug]?.finding || v.answer).split('. ').slice(0, 2).join('. ').replace(/\.?$/, '.')}</p></div></a></li>)}</ol>
-  {s.next.length > 0 && <><h2>In production</h2><ul class="chips">{s.next.map(n => <li><span class="chip">{n}</span></li>)}</ul><div style="height:48px"></div></>}
+  {s.next.length > 0 && !RESTING.has(s.id) && <><h2>In production</h2><ul class="chips">{s.next.map(n => <li><span class="chip">{n}</span></li>)}</ul><div style="height:48px"></div></>}
   <h2>The other shows</h2>
   <ul class="chips" style="margin-bottom:80px">{others.map(o => <li><a href={u('/' + o.id + '/')}>{o.short === 'Lab' ? 'The Lab' : o.name}</a></li>)}</ul>
 </div>

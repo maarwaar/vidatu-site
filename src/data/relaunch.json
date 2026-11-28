@@ -1,0 +1,276 @@
+[
+ {
+  "show": "oob",
+  "n": 4,
+  "slug": "robot-vacuum",
+  "title": "An alien audits your robot vacuum",
+  "answer": "Humans built a disc to clean the floor. Then they gave it a name. In a study of 30 owners, 21 had named their robot vacuum, 16 called it \"he\", and one introduced it to his parents.",
+  "notes": [
+   {
+    "text": "Sung, Guo, Grinter & Christensen (2007), \"My Roomba Is Rambo\": Intimate Home Appliances, UbiComp 2007 (Georgia Tech).",
+    "link": "https://doi.org/10.1007/978-3-540-74853-3_9"
+   }
+  ],
+  "pin": "What is your robot vacuum called?",
+  "transcript": [
+   "Field report four. Subject: humans.",
+   "They built a machine to clean the floor.",
+   "It is a disc. It has no face.",
+   "Researchers visited thirty owners.",
+   "Twenty-one had given it a name.",
+   "Sixteen called it \"he\".",
+   "Some clean first. So it has less work.",
+   "One introduced it to his parents.",
+   "Verdict:",
+   "Adorable. They have named me too.",
+   "What is yours called?"
+  ],
+  "checked": {
+   "claim": "Of 30 robot vacuum owners studied, 21 had named it and 16 called it \"he\"",
+   "verdict": "Confirmed"
+  },
+  "topic": "humans",
+  "img": "v/oob-4.jpg",
+  "checkedOn": "27 Nov 2026"
+ },
+ {
+  "show": "oob",
+  "n": 5,
+  "slug": "endurance-hunt",
+  "title": "An alien studies how humans hunt",
+  "answer": "Humans are slow, but they can keep moving in heat that stops faster animals. Hunters in the Kalahari were recorded running down kudu over 2 to 5 hours and 25 to 35 km, at about 40°C.",
+  "notes": [
+   {
+    "text": "Liebenberg (2006), \"Persistence Hunting by Modern Hunter-Gatherers\", Current Anthropology 47(6).",
+    "link": "https://doi.org/10.1086/508695"
+   }
+  ],
+  "pin": "How far could you run before you had to stop?",
+  "transcript": [
+   "Field report five. Subject: humans.",
+   "They are slower than their prey.",
+   "So they do not sprint. They keep coming.",
+   "Recorded in the Kalahari. At forty degrees.",
+   "Two to five hours. Thirty-five kilometres.",
+   "The prey overheats. It has to stop.",
+   "The human does not. It leaks to stay cool.",
+   "Then it walks up to its dinner.",
+   "Verdict:",
+   "Terrifying. Do not run.",
+   "How far could you go?"
+  ],
+  "checked": {
+   "claim": "Recorded persistence hunts lasted about 2 to 5 hours over 25 to 35 km at 40 to 42°C",
+   "verdict": "Confirmed, from a small number of recorded hunts"
+  },
+  "topic": "humans",
+  "img": "v/oob-5.jpg",
+  "checkedOn": "27 Nov 2026"
+ },
+ {
+  "show": "oob",
+  "n": 6,
+  "slug": "spicy-food",
+  "title": "An alien tries to understand spicy food",
+  "answer": "Chillies burn mammals but not birds, which spread their seeds. Humans grow them on purpose. Psychologist Paul Rozin calls the pleasure \"benign masochism\", and estimates that about a third of people eat hot peppers every day.",
+  "notes": [
+   {
+    "text": "Rozin & Schiller (1980), \"The nature and acquisition of a preference for chili pepper by humans\", Motivation and Emotion 4: 77–101.",
+    "link": "https://doi.org/10.1007/BF00995932"
+   }
+  ],
+  "pin": "How hot can you go? Name your pepper.",
+  "transcript": [
+   "Field report six. Subject: humans.",
+   "A plant makes a chemical that burns mammals.",
+   "It is a warning. Do not eat me.",
+   "Birds cannot feel it. Mammals stay away.",
+   "Humans farm it.",
+   "A third of them eat it every day.",
+   "They sweat. They cry. They ask for more.",
+   "Their scientists call it benign masochism.",
+   "Verdict:",
+   "Absurd. Pass the sauce.",
+   "How hot can you go?"
+  ],
+  "checked": {
+   "claim": "Rozin calls the liking of chilli burn \"benign masochism\"; well over 2 billion adults enjoy it",
+   "verdict": "Confirmed"
+  },
+  "topic": "humans",
+  "img": "v/oob-6.jpg",
+  "checkedOn": "27 Nov 2026"
+ },
+ {
+  "show": "oob",
+  "n": 7,
+  "slug": "haunted-house",
+  "title": "An alien visits a haunted house",
+  "answer": "Fear tells an animal to leave. Humans buy tickets to it. In a haunted house in Denmark, 110 visitors wore heart-rate monitors: they enjoyed it most at a middle level of fear, and less when it was too mild or too strong.",
+  "notes": [
+   {
+    "text": "Andersen et al. (2020), \"Playing With Fear: A Field Study in Recreational Horror\", Psychological Science 31(12): 1497–1510.",
+    "link": "https://doi.org/10.1177/0956797620972116"
+   }
+  ],
+  "pin": "What scared you just the right amount?",
+  "transcript": [
+   "Field report seven. Subject: humans.",
+   "Fear is their alarm. It means: leave.",
+   "Humans buy tickets to it.",
+   "Dark houses. Actors dressed as zombies.",
+   "Researchers wired 110 visitors to heart monitors.",
+   "Too little fear: bored.",
+   "Too much: miserable.",
+   "In the middle: delighted.",
+   "Verdict:",
+   "Reckless. I have bought a ticket.",
+   "What scared you just enough?"
+  ],
+  "checked": {
+   "claim": "110 haunted-house visitors (ages 12 to 57) enjoyed it most at a middle level of fear",
+   "verdict": "Confirmed"
+  },
+  "topic": "humans",
+  "img": "v/oob-7.jpg",
+  "checkedOn": "27 Nov 2026"
+ },
+ {
+  "show": "yup-and-nope",
+  "n": 4,
+  "slug": "could-you-outrun-a-t-rex",
+  "title": "Could you outrun a T. rex?",
+  "answer": "Yup says easy. Nope has numbers: a 2017 computer model found that T. rex could not run without breaking its legs, but its fast walk still reached about 19 km/h (12 mph). You decide.",
+  "notes": [
+   {
+    "text": "Sellers et al. (2017), \"Investigating the running abilities of Tyrannosaurus rex using stress-constrained multibody dynamic analysis\", PeerJ 5: e3420.",
+    "link": "https://doi.org/10.7717/peerj.3420"
+   },
+   {
+    "text": "The paper limits T. rex to walking. The figure of about 19 km/h (12 mph) is as reported from the study; the paper itself gives no single top speed for that walk.",
+    "link": null
+   }
+  ],
+  "pin": "Run, hide or stand still? Vote.",
+  "transcript": [
+   "Yup: Could you outrun a T. rex? Easy!",
+   "Nope: Good news. It could not run.",
+   "Yup: Ha! Told you!",
+   "Nope: Its bones would have snapped. A 2017 study.",
+   "Yup: So I just jog away!",
+   "Nope: Its fastest walk: about nineteen kilometres an hour.",
+   "Yup: …That is faster than I jog.",
+   "Nope: That is a five-minute mile. Good luck.",
+   "Yup: So could you outrun it?"
+  ],
+  "checked": {
+   "claim": "A 2017 computer model found running would overload the leg bones of T. rex, limiting it to walking",
+   "verdict": "Confirmed"
+  },
+  "topic": "animals",
+  "img": "v/duo-4.jpg",
+  "checkedOn": "27 Nov 2026"
+ },
+ {
+  "show": "yup-and-nope",
+  "n": 5,
+  "slug": "hot-day-hot-drink-or-cold-drink",
+  "title": "Hot day: hot drink or cold drink?",
+  "answer": "Nine men cycled for 75 minutes while drinking water between 1.5°C and 50°C. With the hot water their bodies stored less heat: they sweated more, and the sweat evaporated. It only works where sweat can dry, and the lead researcher says the effect is small.",
+  "notes": [
+   {
+    "text": "Bain, Lesperance & Jay (2012), \"Body heat storage during physical activity is lower with hot fluid ingestion under conditions that permit full evaporation\", Acta Physiologica 206(2): 98–108.",
+    "link": "https://doi.org/10.1111/j.1748-1716.2012.02452.x"
+   }
+  ],
+  "pin": "Hot tea or iced water on a hot day? Vote.",
+  "transcript": [
+   "Yup: Hot day! Ice water! Obviously!",
+   "Nope: A hot drink can cool you more.",
+   "Yup: That is nonsense.",
+   "Nope: Nine cyclists. Ottawa. Hot water won.",
+   "Yup: How?!",
+   "Nope: Hot drink, more sweat. Sweat dries, you cool.",
+   "Yup: So I drink tea in a heatwave!",
+   "Nope: Only if your sweat can dry. Humid? You lose.",
+   "Yup: Hot or cold? Your pick."
+  ],
+  "checked": {
+   "claim": "With 50°C water, cyclists stored less body heat than with 1.5°C, 10°C or 37°C water, when sweat could fully evaporate",
+   "verdict": "Confirmed"
+  },
+  "topic": "humans",
+  "img": "v/duo-5.jpg",
+  "checkedOn": "27 Nov 2026"
+ },
+ {
+  "show": "tess",
+  "n": 4,
+  "slug": "the-knot-that-unties-itself-it-is-geometry",
+  "title": "The knot that unties itself (it is geometry)",
+  "answer": "A knotted loop cannot be undone in our three dimensions. With a fourth direction to move in, one strand can step past another without touching it, so every knot comes apart.",
+  "notes": [
+   {
+    "text": "Standard knot theory: Livingston, \"Knot Theory\" (Mathematical Association of America, 1993), chapter 9.",
+    "link": null
+   }
+  ],
+  "pin": "What would you untie first?",
+  "transcript": [
+   "Tie a knot. Join the ends.",
+   "Now it can never come undone.",
+   "Pull. Twist. Still stuck.",
+   "Unless you ask me.",
+   "I nudge one strand in my direction.",
+   "It steps past the other. Without touching.",
+   "Every knot does this. Every single one.",
+   "Mathematicians proved it.",
+   "In my world, you could not tie your shoes.",
+   "I wear slippers."
+  ],
+  "checked": {
+   "claim": "Every knotted loop can be undone in four dimensions",
+   "verdict": "Confirmed"
+  },
+  "topic": "maths",
+  "img": "v/tess-4.jpg",
+  "checkedOn": "27 Nov 2026"
+ },
+ {
+  "show": "murmur",
+  "n": 4,
+  "slug": "23-million-people-share-your-birthday",
+  "title": "23 million people share your birthday",
+  "answer": "About 8.3 billion people share 365 days, so roughly 23 million people have your birthday. For 29 February it is about 6 million.",
+  "notes": [
+   {
+    "text": "United Nations, World Population Prospects 2024, divided by the days in a year.",
+    "link": "https://www.un.org/development/desa/pd/world-population-prospects-2024"
+   },
+   {
+    "text": "These are averages: real birthdays are not spread perfectly evenly.",
+    "link": null
+   }
+  ],
+  "pin": "When is your birthday? Find your 23 million.",
+  "transcript": [
+   "I'm Murmur. One dot, a million people.",
+   "Think of your birthday.",
+   "Now watch. I'll sort myself by day.",
+   "Twelve months. Every day of the year.",
+   "These dots share your day.",
+   "Twenty-three of them. Twenty-three million people.",
+   "All one year older on the same day.",
+   "Born on the twenty-ninth of February?",
+   "You are rarer. About six dots.",
+   "Which day is yours?"
+  ],
+  "checked": {
+   "claim": "8.3 billion ÷ 365.25 days ≈ 22.7 million people per birthday; ÷ 1,461 ≈ 5.7 million for 29 February",
+   "verdict": "Confirmed"
+  },
+  "topic": "humans",
+  "img": "v/murmur-4.jpg",
+  "checkedOn": "27 Nov 2026"
+ }
+]

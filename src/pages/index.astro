@@ -1,6 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { u, shows, reports, TOPICS } from '../data/site.js';
+import { u, shows, reports, TOPICS, RETIRED, RESTING } from '../data/site.js';
+const latest = reports.filter(r => !RETIRED.has('oob-' + Number(r.no))).sort((a, b) => b.no.localeCompare(a.no));
+const resting = shows.filter(s => RESTING.has(s.id));
 const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidatu', url: 'https://vidatu.com/' }];
 ---
 <Base title="Vidatu: an alien is auditing humans" description="Inspector Oob files 30-second field reports on human habits. His colleagues explain the rest of the universe. Every fact has a source." path="/" ld={ld}>
@@ -10,7 +12,7 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidat
     <div>
       <ul class="kicker"><li><span>Filed by</span>Inspector Oob</li><li><span>Subject</span>humans</li></ul>
       <h1>An alien is auditing <em>humans.</em></h1>
-      <p class="lede">Inspector Oob files one 30-second report on one human habit. Clapping. Queues. Your cat. Each ends with a stamped verdict, and every fact has a source.</p>
+      <p class="lede">Inspector Oob files one 30-second report on one human habit. Robot vacuums. Spicy food. Your cat. Each ends with a stamped verdict, and every fact has a source.</p>
       <div class="actions"><a class="btn" href={u('/oob/')} style="view-transition-name:t-oob">Read the reports</a><a class="btn ghost" href="https://www.youtube.com/@vidatutv">Watch on YouTube</a></div>
     </div>
     <figure class="specimen" data-live={u('/js/oob-live.js')} data-base={u('/oob/')}>
@@ -23,13 +25,14 @@ const ld = [{ '@context': 'https://schema.org', '@type': 'WebSite', name: 'Vidat
 </div></div>
 <div class="band" data-bg="#120E2A"><div class="wrap">
   <h2>Latest reports</h2>
-  <ol class="holos">{reports.map(r => <li><a class="holo" href={u('/oob/' + r.slug + '/')}><span class="no">REPORT {r.no}</span><h3>{r.h1}</h3><p>{r.finding}</p><span class={'stamp ' + r.vc}>{r.verdict}</span></a></li>)}</ol>
+  <ol class="holos">{latest.map(r => <li><a class="holo" href={u('/oob/' + r.slug + '/')}><span class="no">REPORT {r.no}</span><h3>{r.h1}</h3><p>{r.finding}</p><span class={'stamp ' + r.vc}>{r.verdict}</span></a></li>)}</ol>
 </div></div>
 <div id="shows"></div>
-{shows.filter(s => s.id !== 'oob' && s.id !== 'lab').map((s, n) => <section class="world" data-bg={s.bg} style={`--bg:${s.bg};--fg:${s.fg};--dir:${n % 2 ? -1 : 1};background:${s.bg};color:${s.fg}`}><div class="wrap grid">
+{shows.filter(s => s.id !== 'oob' && s.id !== 'lab' && !RESTING.has(s.id)).map((s, n) => <section class="world" data-bg={s.bg} style={`--bg:${s.bg};--fg:${s.fg};--dir:${n % 2 ? -1 : 1};background:${s.bg};color:${s.fg}`}><div class="wrap grid">
   <a class="pic" href={u('/' + s.id + '/')} aria-label={'Meet ' + s.name} style={`view-transition-name:p-${s.id}`}><video muted loop playsinline preload="none" poster={u('/img/' + s.img)} data-loop><source src={u('/img/' + s.vid)} type="video/mp4"></video></a>
   <div class="txt"><p class="fmt">{s.format}</p><a class="name" href={u('/' + s.id + '/')}><h2 style={`view-transition-name:t-${s.id}`}>{s.short}</h2></a><p class="line">{s.idea.split('. ')[0]}.</p><a class="btn" style={`background:${s.fg};color:${s.bg}`} href={u('/' + s.id + '/')}>Meet {s.short}</a></div>
 </div></section>)}
+<div class="band" data-bg="#120E2A"><div class="wrap"><p class="note">Resting: {resting.map((s, i) => <>{i ? (i === resting.length - 1 ? ' and ' : ', ') : ''}<a href={u('/' + s.id + '/')}>{s.short}</a></>)}. No new films until a topic passes our research check. Their pages and sources stay here.</p></div></div>
 <div class="lab" id="lab" data-bg="#070B20"><div class="wrap grid">
   <div>
     <h2>The Lab. No words, just the rule.</h2>

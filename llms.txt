@@ -1,0 +1,87 @@
+# Vidatu
+
+> Hidden rules, made visible. 30-second animated explainers, made entirely in code, with a named source for every fact. Inspector Oob, an alien, files field reports on human habits; other characters explain maths, numbers and everyday science. Created and produced by SellnShip Solutions Pvt. Ltd., Chandigarh, India. Voices are AI-generated.
+
+Each page below answers one question in its first paragraph, says what was checked and when, and links its sources. YouTube channel: https://www.youtube.com/@vidatutv
+
+## Inspector Oob
+
+Files deadpan field reports on human habits, then stamps a verdict. Secretly growing fond of us.
+
+- [Why does a whole audience stop clapping at once?](https://vidatu.com/oob/clapping/): Applause spreads through a crowd like a contagion: people start clapping because the people around them are clapping. Stopping works the same way, which is why a whole audience falls silent together with no signal. (Not on YouTube.)
+- [Do cats know their names?](https://vidatu.com/oob/your-cat/): Yes. In a 2019 study of 78 cats in Japan, cats reacted more to their own names than to similar-sounding words or to other cats’ names, even when a stranger was speaking. Coming when called is a separate matter. Film: https://www.youtube.com/shorts/eTelixkEn04 (public from 10 Dec 2026).
+- [Why do people queue when nobody makes them?](https://vidatu.com/oob/the-queue/): Because everyone in the line accepts the same rule: first to arrive is first to be served. Usually nothing enforces it except the disapproval of the other people waiting. (Not on YouTube.)
+- [Why do people name their robot vacuums?](https://vidatu.com/oob/robot-vacuum/): Because a machine that moves around the home by itself gets treated like a member of the household. In a 2007 Georgia Tech study of 30 owners, 21 had given their robot vacuum a name and 16 referred to it as "he". Film: https://www.youtube.com/shorts/PV5-SWblQd4 (public from 28 Nov 2026).
+- [Can a human run down an antelope?](https://vidatu.com/oob/endurance-hunt/): Sometimes, in great heat. Hunters in the central Kalahari were recorded chasing kudu for about 2 to 5 hours, over 25 to 35 km, at 40 to 42°C. The animal overheats and has to stop; the human, cooled by sweat, keeps going. Film: https://www.youtube.com/shorts/pHh7w1hmqsY (public from 7 Dec 2026).
+- [Why do humans like spicy food?](https://vidatu.com/oob/spicy-food/): Psychologist Paul Rozin, who has studied the question since 1980, calls it "benign masochism": enjoying a burn that the body treats as danger, because the mind knows it is safe. He estimates that well over two billion adults enjoy the burn of chilli. Film: https://www.youtube.com/shorts/h4R1VwNwVpo (public from 1 Dec 2026).
+- [Why do people enjoy being scared?](https://vidatu.com/oob/haunted-house/): Up to a point. In a 2020 field study, 110 visitors to a haunted house in Denmark wore heart-rate monitors and rated their fear and enjoyment. Enjoyment peaked at a middle level of fear: too little was dull, too much was unpleasant. Film: https://www.youtube.com/shorts/N-12xXhykdw (public from 4 Dec 2026).
+
+## Percy (resting: no new films for now)
+
+Born at 0%, gone at 100%. Must finish one fact before he does. Always stalls at 99% before the payoff.
+
+- [Why loading bars freeze at 99%](https://vidatu.com/percy/why-loading-bars-freeze-at-99/): Percy is a progress bar with 30 seconds to live. Many bars count finished tasks, not time, and the last task is often the slowest. (Not on YouTube.)
+- [The food that never goes off](https://vidatu.com/percy/the-food-that-never-goes-off/): Sealed honey barely spoils: almost no water, high acidity, and an enzyme from bees that makes hydrogen peroxide. Honey thousands of years old has been found still preserved. (Not on YouTube.)
+- [What exactly is one second?](https://vidatu.com/percy/what-exactly-is-one-second/): Since 1967 a second is not a slice of a day. It is 9,192,631,770 ticks of a caesium atom. Percy's whole 30-second life is about 276 billion of them. (Not on YouTube.)
+
+## Old H (resting: no new films for now)
+
+He has been in a star, an ocean and a dinosaur. He tells history as personal anecdote. Signature line, once per video: "I was there."
+
+- [The day the universe became see-through](https://vidatu.com/old-h/the-day-the-universe-became-see-through/): For about 380,000 years the universe was a hot fog that light could not cross. Then atoms formed, the fog cleared, and that first light is still arriving today. (Not on YouTube.)
+- [How a star makes sunshine](https://vidatu.com/old-h/how-a-star-makes-sunshine/): Deep inside the Sun it is about 15 million degrees. Hydrogen nuclei fuse into helium, a little mass goes missing, and it leaves as light. (Not on YouTube.)
+- [Your glass of water is 13.8 billion years old](https://vidatu.com/old-h/your-glass-of-water-is-13-8-billion-years-old/): Almost every hydrogen atom in your water was made in the first minutes after the Big Bang. It has been a cloud, a comet and an ocean before it reached your glass. (Not on YouTube.)
+
+## Gulp (resting: no new films for now)
+
+Grapefruit-sized, polite, permanently hungry. Asks before eating and does not wait for the answer. Every episode has a real physics answer.
+
+- [What if a tiny black hole ate the Moon?](https://vidatu.com/gulp/what-if-a-tiny-black-hole-ate-the-moon/): Gulp is a polite, pocket-sized black hole. Without the Moon, tides would shrink to about a third, nights would be far darker, and Earth's tilt would slowly become unstable. (Not on YouTube.)
+- [A grapefruit-sized black hole in your kitchen](https://vidatu.com/gulp/a-grapefruit-sized-black-hole-in-your-kitchen/): A black hole the size of a grapefruit would weigh about as much as seven Earths. Your kitchen would not survive the visit. (Not on YouTube.)
+- [Can a black hole eat light?](https://vidatu.com/gulp/can-a-black-hole-eat-light/): Light is the fastest thing there is, and even light cannot climb back out of a black hole. Light that only passes nearby gets bent. (Not on YouTube.)
+
+## Yup & Nope
+
+The optimist half and the sceptic half argue one question with real facts. The meter always ends level and the audience votes in the comments. When they agree, they snap together into one face. Keep that rare.
+
+- [Could you outrun a hippo?](https://vidatu.com/yup-and-nope/could-you-outrun-a-hippo/): Yup says easy. Nope has numbers: a hippo can run about 30 km/h on land, faster than most people can sprint. You decide. Film: https://www.youtube.com/shorts/HMnNTYlZhUM (public from 30 Nov 2026).
+- [Is the five-second rule real?](https://vidatu.com/yup-and-nope/is-the-five-second-rule-real/): Bacteria can transfer in under a second. But dry food picks up far less, and carpet passes on less than tile. So who wins? Film: https://www.youtube.com/shorts/Ua_E6y-uQ8Y (public from 3 Dec 2026).
+- [Would you move to Mars?](https://vidatu.com/yup-and-nope/would-you-move-to-mars/): About minus 60 degrees on average, air that is 95% carbon dioxide, and a day only 37 minutes longer than ours. But you would weigh about a third as much. (Not on YouTube.)
+- [Could you outrun a T. rex?](https://vidatu.com/yup-and-nope/could-you-outrun-a-t-rex/): Yup says easy. Nope has numbers: a 2017 computer model found that T. rex could not run without breaking its legs, but its fast walk still reached about 19 km/h (12 mph). You decide. Film: https://www.youtube.com/shorts/c8muZgJBALQ (public from 6 Dec 2026).
+- [Hot day: hot drink or cold drink?](https://vidatu.com/yup-and-nope/hot-day-hot-drink-or-cold-drink/): Nine men cycled for 75 minutes while drinking water between 1.5°C and 50°C. With the hot water their bodies stored less heat: they sweated more, and the sweat evaporated. It only works where sweat can dry, and the lead researcher says the effect is small. Film: https://www.youtube.com/shorts/MBhgALCW1ew (public from 11 Dec 2026).
+
+## Tess
+
+What we see is only her shadow. She performs "impossible" tricks that are simply geometry from one dimension up, and explains each with Sam, a flat square who lives on a sheet of paper.
+
+- [This is not a cube](https://vidatu.com/tess/this-is-not-a-cube/): Tess is four-dimensional, so what you see is only her shadow. A flat creature watching a ball pass through its world sees a dot, a circle, then nothing. You see her the same way. (Not on YouTube.)
+- [The impossible box trick (it is geometry)](https://vidatu.com/tess/the-impossible-box-trick-it-is-geometry/): A ball leaves a sealed box with no lid and no door. A flat creature cannot leave a square, but you could lift it out. Tess does the same, one dimension higher. Film: https://www.youtube.com/shorts/HlbU-JuPV3Q (public from 5 Dec 2026).
+- [How to turn a left shoe into a right shoe](https://vidatu.com/tess/how-to-turn-a-left-shoe-into-a-right-shoe/): Slide and spin a flat letter F and it stays an F. Lift it off the page and flip it, and it becomes its mirror image. One dimension higher, the same works on solid things. Film: https://www.youtube.com/shorts/b-nvnl644_k (public from 9 Dec 2026).
+- [The knot that unties itself (it is geometry)](https://vidatu.com/tess/the-knot-that-unties-itself-it-is-geometry/): A knotted loop cannot be undone in our three dimensions. With a fourth direction to move in, one strand can step past another without touching it, so every knot comes apart. Film: https://www.youtube.com/shorts/iXSUI2bE5aY (public from 12 Dec 2026).
+
+## Murmur
+
+8,300 dots, one for every million people alive, coloured by region. She speaks as "I" for all of humanity. One of the dots is you.
+
+- [One of these 8,300 dots is you](https://vidatu.com/murmur/one-of-these-8-300-dots-is-you/): Murmur is made of 8,300 dots, one for every million people alive. About six in ten live in Asia and nearly two in ten in Africa. Film: https://www.youtube.com/shorts/7s3FS2JdXtk (public from 29 Nov 2026).
+- [Four people are born every second](https://vidatu.com/murmur/four-people-are-born-every-second/): Every second about four people are born and two die. The world grows by roughly 190,000 people a day. (Not on YouTube.)
+- [You are part of the newest 7%](https://vidatu.com/murmur/you-are-part-of-the-newest-7/): About 117 billion people have ever been born. Everyone alive today is roughly 7% of the human story. Film: https://www.youtube.com/shorts/XPul1Jg9qk4 (public from 2 Dec 2026).
+- [23 million people share your birthday](https://vidatu.com/murmur/23-million-people-share-your-birthday/): About 8.3 billion people share 365 days, so roughly 23 million people have your birthday. For 29 February it is about 6 million. Film: https://www.youtube.com/shorts/4ubZQ0A5p6c (public from 8 Dec 2026).
+
+## The Lab
+
+Captions, code-made sound and one physical rule made visible. No voice-over. Each experiment is a simulation you can run yourself.
+
+- [15 pendulums, one hidden rule](https://vidatu.com/lab/15-pendulums-one-hidden-rule/): Fifteen pendulums, each a little shorter than the last. In 24 seconds the longest makes 18 swings, the next 19, and so on up to 32. They drift into waves, then a mess, then land back in step at exactly 24 seconds. Each pendulum plays its own note.
+- [400 balls, pure luck, one shape](https://vidatu.com/lab/400-balls-pure-luck-one-shape/): Every peg is a coin flip: left or right. Nobody can say where one ball lands. But drop 400 and the pile takes the same shape every time: the bell curve.
+- [40 pendulums, almost the same start](https://vidatu.com/lab/40-pendulums-almost-the-same-start/): Forty double pendulums start a billionth of a degree apart. For about eleven seconds they move as one. Then they split, and never agree again. The same effect limits weather forecasts to about two weeks.
+
+## Other pages
+
+- [Every source, by show](https://vidatu.com/sources/)
+- [About Vidatu](https://vidatu.com/about/)
+- [Space](https://vidatu.com/topics/space/): Stars, black holes, the Moon and the first light in the universe.
+- [Animals](https://vidatu.com/topics/animals/): Cats that ignore you, and a hippo and a T. rex you cannot outrun.
+- [Maths](https://vidatu.com/topics/maths/): Bell curves, higher dimensions and shapes that should not be possible.
+- [Physics](https://vidatu.com/topics/physics/): Time, light, chaos and why pendulums fall back into step.
+- [Human life](https://vidatu.com/topics/humans/): Robot vacuums, spicy food, haunted houses and the eight billion of us.

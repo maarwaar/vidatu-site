@@ -20,8 +20,8 @@ const YTS = {
   'yup-and-nope-1': ['HMnNTYlZhUM', '2026-11-30'],
   'murmur-3': ['XPul1Jg9qk4', '2026-12-02'],
   'yup-and-nope-2': ['Ua_E6y-uQ8Y', '2026-12-03'],
-  'tess-2': ['fEaCtveKdlk', '2026-12-05'],
-  'tess-3': ['Ly7vd_XRYbc', '2026-12-09'],
+  'tess-2': ['HlbU-JuPV3Q', '2026-12-05'],
+  'tess-3': ['b-nvnl644_k', '2026-12-09'],
   'oob-2': ['eTelixkEn04', '2026-12-10'],
 };
 // Not on YouTube (28 Nov 2026): deleted from Studio after the topic gate, or never uploaded. Their pages keep the explanation and sources.

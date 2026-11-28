@@ -24,6 +24,8 @@ const YTS = {
   'tess-3': ['Ly7vd_XRYbc', '2026-12-09'],
   'oob-2': ['eTelixkEn04', '2026-12-10'],
 };
+// Not on YouTube (28 Nov 2026): deleted from Studio after the topic gate, or never uploaded. Their pages keep the explanation and sources.
+export const RETIRED = new Set(['oob-1', 'oob-3', 'percy-1', 'percy-2', 'percy-3', 'old-h-1', 'old-h-2', 'old-h-3', 'gulp-1', 'gulp-2', 'gulp-3', 'tess-1', 'murmur-2', 'yup-and-nope-3']);
 export const yt = v => { const y = YTS[v.show + '-' + v.n]; if (!y) return null; const d = new Date(y[1] + 'T00:00:00Z'); return { id: y[0], at: y[1] + 'T21:30:00+05:30', day: d.getUTCDate() + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getUTCMonth()] }; };
 
 export const reports = [

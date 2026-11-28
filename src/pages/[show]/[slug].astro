@@ -1,6 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
-import { u, shows, videos, reports, showOf, TOPICS, CHECKED, host, yt } from '../../data/site.js';
+import { u, shows, videos, reports, showOf, TOPICS, CHECKED, host, yt, RETIRED } from '../../data/site.js';
 export function getStaticPaths() { return videos.map(v => ({ params: { show: v.show, slug: v.slug }, props: { v } })); }
 const film = yt(Astro.props.v);
 const { v } = Astro.props, s = showOf(v.show), r = reports.find(x => x.slug === v.slug && v.show === 'oob'), list = videos.filter(x => x.show === v.show), i = list.indexOf(v), prev = list[i - 1], next = list[i + 1];
@@ -35,6 +35,7 @@ const ld = [
        : v.show === 'lab' && v.n === 3 ? <><canvas id="chaos" data-live={u('/js/oob-live.js')} aria-label="Forty double pendulums. Tap to release them again."></canvas><p style="margin-top:12px;font-size:15px;opacity:.8;text-align:center">Running live. Tap to release them again.</p></>
        : <figure class="specimen"><img src={u('/img/' + v.img)} alt={`${s.short}: ${h1}`} width="640" height="480" loading="eager">{r && <span class={'stamp ' + r.vc}>{r.verdict}</span>}</figure>}
       {film ? <div class="film" data-id={film.id} data-at={film.at} style="margin-top:28px"><p class="soon">The 30-second film goes public on {film.day} on <a href="https://www.youtube.com/@vidatutv">YouTube</a>.</p><p class="live actions" hidden><button class="btn" type="button">Play the film here</button><a class="btn ghost" href={`https://www.youtube.com/shorts/${film.id}`} rel="noopener">Watch on YouTube</a></p></div>
+        : RETIRED.has(Astro.props.v.show + '-' + Astro.props.v.n) ? <p style="margin-top:36px">This one is not on YouTube. The explanation and its sources stay here.</p>
         : <p style="margin-top:36px">The 30-second film is coming to <a href="https://www.youtube.com/@vidatutv">YouTube</a>.</p>}
     </aside>
   </div>

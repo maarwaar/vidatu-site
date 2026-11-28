@@ -13,7 +13,17 @@ export const CHECKED = '26 Nov 2026';
 // Empty since 27 Nov 2026: the channel launch is paused while every video goes through the topic gate
 // ("00 Vidatu - START HERE", section 3b). The 15 uploads stay in YouTube Studio as private videos. Their ids, for the relaunch:
 // oob-1 5ajdArNd0dg, tess-2 fEaCtveKdlk, percy-1 9gFafVvjNqk, oob-2 Cw6uO8D1nQE, gulp-1 gAmowDgkN6A, old-h-3 g0D9w1HwGfc, oob-3 50TFVscOujg, percy-2 Q7c2T0TGgGs, gulp-2 1lAmvGpa4h8, tess-1 sVOj6NG15y0, old-h-1 SnmEJCizEaU, percy-3 L7s1_gKGuks, gulp-3 NDiLNtqh0HA, tess-3 Ly7vd_XRYbc, old-h-2 B7JALA7G7ms
-const YTS = {};
+// Relaunch, set 28 Nov 2026: the keeps that have a page here. The new videos (Oob 004 to 007, Yup & Nope 4 and 5, Tess 4, Murmur 4) have no page yet.
+// oob-2 is the new-ending cut (eTelixkEn04); the old upload Cw6uO8D1nQE is retired.
+const YTS = {
+  'murmur-1': ['7s3FS2JdXtk', '2026-11-29'],
+  'yup-and-nope-1': ['HMnNTYlZhUM', '2026-11-30'],
+  'murmur-3': ['XPul1Jg9qk4', '2026-12-02'],
+  'yup-and-nope-2': ['Ua_E6y-uQ8Y', '2026-12-03'],
+  'tess-2': ['fEaCtveKdlk', '2026-12-05'],
+  'tess-3': ['Ly7vd_XRYbc', '2026-12-09'],
+  'oob-2': ['eTelixkEn04', '2026-12-10'],
+};
 export const yt = v => { const y = YTS[v.show + '-' + v.n]; if (!y) return null; const d = new Date(y[1] + 'T00:00:00Z'); return { id: y[0], at: y[1] + 'T21:30:00+05:30', day: d.getUTCDate() + ' ' + ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][d.getUTCMonth()] }; };
 
 export const reports = [
